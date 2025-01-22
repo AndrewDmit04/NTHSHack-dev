@@ -7,17 +7,17 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
   /* Event Colors */
   const eventColors = {
     All: 'border-gray-500 text-gray-500',
-    Required: 'border-[#FC012E] text-[#FC012E]',
-    Food: 'border-[#56E100] text-[#56E100]',
-    Social: 'border-[#FFB900] text-[#FFB900]',
-    Sponsor: 'border-[#008CF1] text-[#008CF1]',
-    Workshop: 'border-[#5200FF] text-[#5200FF]',
+    ChallengeOpensCloses: 'border-[#FC012E] text-[#FC012E]',
+    General: 'border-[#56E100] text-[#56E100]',
+    Activities: 'border-[#FFB900] text-[#FFB900]',
+    Workshops: 'border-[#008CF1] text-[#008CF1]',
+    Food: 'border-[#5200FF] text-[#5200FF]',
     'All-Filter': 'border-gray-500 bg-gray-500 text-white',
-    'Required-Filter': 'border-[#FC012E] bg-[#FC012E] text-white',
-    'Food-Filter': 'border-[#56E100] bg-[#56E100] text-white',
-    'Social-Filter': 'border-[#FFB900] bg-[#FFB900] text-white',
-    'Sponsor-Filter': 'border-[#008CF1] bg-[#008CF1] text-white',
-    'Workshop-Filter': 'border-[#5200FF] bg-[#5200FF] text-white',
+    'ChallengeOpensCloses-Filter': 'border-[#FC012E] bg-[#FC012E] text-white',
+    'General-Filter': 'border-[#56E100] bg-[#56E100] text-white',
+    'Activities-Filter': 'border-[#FFB900] bg-[#FFB900] text-white',
+    'Workshops-Filter': 'border-[#008CF1] bg-[#008CF1] text-white',
+    'Food-Filter': 'border-[#5200FF] bg-[#5200FF] text-white',
   };
 
   /* Dates Values */
@@ -33,24 +33,24 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
 
   /* Set event dates and times */
   const day1StartDateAndTime = new Date(
-    dateValues['year'],
-    dateValues['day1Month'],
-    dateValues['day1'],
-    dateValues['startTime'],
+    dateValues['2025'],
+    dateValues['March'],
+    dateValues['Saturday'],
+    dateValues['9:00AM'],
     0,
   );
   const day2StartDateAndTime = new Date(
-    dateValues['year'],
-    dateValues['day2Month'],
-    dateValues['day2'],
-    dateValues['startTime'],
+    dateValues['2025'],
+    dateValues['March'],
+    dateValues['Sunday'],
+    dateValues['9:00AM'],
     0,
   );
   const eventEndDateAndTime = new Date(
-    dateValues['year'],
-    dateValues['day1Month'],
-    dateValues['day2'] + 1,
-    dateValues['endTime'],
+    dateValues['2025'],
+    dateValues['March'],
+    dateValues['Sunday'] + 1,
+    dateValues['5:00PM'],
     0,
   );
 
@@ -134,8 +134,59 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
       ));
   };
 
-  const day1Events = getDailyEvents(day1StartDateAndTime, day2StartDateAndTime);
-  const day2Events = getDailyEvents(day2StartDateAndTime, eventEndDateAndTime);
+  // const day1Events = getDailyEvents(day1StartDateAndTime, day2StartDateAndTime);
+  // const day2Events = getDailyEvents(day2StartDateAndTime, eventEndDateAndTime);
+
+  const schedule = {
+    day1: [
+      { time: '9:00AM', description: 'Breakfast / Check-in / Team Building', category: 'general' },
+      { time: '9:30AM', description: 'Opening Ceremony', category: 'general' },
+      { time: '10:00AM', description: '**Challenge Opens**', category: 'challenge' },
+      {
+        time: '11:00AM',
+        description: 'College 101 + Why You Should Consider a Career in Tech',
+        category: 'workshop',
+      },
+      { time: '12:00PM', description: 'Lunch', category: 'general' },
+      { time: '1:00PM', description: 'ACM Presents: Projects & Research', category: 'workshop' },
+      { time: '2:00PM', description: 'Workshop Refresher Roulette', category: 'workshop' },
+      { time: '4:00PM', description: 'ACM Presents: Education', category: 'workshop' },
+      { time: '5:00PM', description: 'Dinner', category: 'general' },
+      { time: '6:00PM', description: 'Just Dance Tournament', category: 'activity' },
+      { time: '8:30PM', description: 'Doors Close', category: 'general' },
+    ],
+    day2: [
+      { time: '9:00AM', description: 'Breakfast / Check-in', category: 'general' },
+      { time: '9:30AM', description: 'Remarks', category: 'general' },
+      { time: '10:00AM', description: 'Tower Building Tournament', category: 'activity' },
+      { time: '11:00AM', description: 'Women in STEM Panel', category: 'panel' },
+      { time: '12:00PM', description: 'Lunch', category: 'general' },
+      { time: '12:00PM', description: 'Pie Game Show', category: 'activity' },
+      { time: '2:00PM', description: '**Challenge Closes**', category: 'challenge' },
+      { time: '2:30PM', description: 'Presentations', category: 'general' },
+      { time: '4:00PM', description: 'Closing Ceremony', category: 'general' },
+      { time: '5:00PM', description: 'Doors Close', category: 'general' },
+    ],
+  };
+
+  const categoryColors = {
+    general: 'bg-green-200 text-green-900',
+    challenge: 'bg-red-200 text-red-900',
+    workshop: 'bg-blue-200 text-blue-900',
+    panel: 'bg-blue-200 text-blue-900',
+    activity: 'bg-yellow-200 text-yellow-900',
+  };
+
+  const renderEvents = (events) =>
+    events.map((event, index) => (
+      <div key={index} className={`p-2 m-2 rounded-md ${categoryColors[event.category]}`}>
+        <div className="font-bold">{event.time}</div>
+        <div>{event.description}</div>
+      </div>
+    ));
+
+  const day1Events = renderEvents(schedule.day1);
+  const day2Events = renderEvents(schedule.day2);
 
   return (
     <div id="schedule-section" className="bg-[#F2F3FF]">
@@ -159,43 +210,53 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
             </div>
 
             <div
-              onClick={() => changeFilter('Required')}
+              onClick={() => changeFilter('ChallengeOpensCloses')}
               className={`text-sm cursor-pointer mx-1 px-2 h-8 py-1 border-2 rounded-xl
-              ${filter === 'Required' ? eventColors['Required-Filter'] : eventColors['Required']}`}
+              ${
+                filter === 'ChallengeOpensCloses'
+                  ? eventColors['ChallengeOpensCloses-Filter']
+                  : eventColors['ChallengeOpensCloses']
+              }`}
             >
-              Required
+              Challenge Opens & Closes
             </div>
 
             <div
-              onClick={() => changeFilter('Sponsor')}
+              onClick={() => changeFilter('Workshops')}
               className={`text-sm cursor-pointer mx-1 px-2 h-8 py-1 border-2 rounded-xl
-              ${filter === 'Sponsor' ? eventColors['Sponsor-Filter'] : eventColors['Sponsor']}`}
+              ${
+                filter === 'Workshops' ? eventColors['Workshops-Filter'] : eventColors['Workshops']
+              }`}
             >
-              Sponsor
+              Workshops/Panels
             </div>
 
             <div
-              onClick={() => changeFilter('Food')}
+              onClick={() => changeFilter('General')}
               className={`text-sm cursor-pointer	mx-1 px-2 h-8 py-1 border-2 rounded-xl
+              ${filter === 'General' ? eventColors['General-Filter'] : eventColors['General']}`}
+            >
+              General
+            </div>
+
+            {/* <div
+              onClick={() => changeFilter('Food')}
+              className={`text-sm cursor-pointer mx-1 px-2 h-8 py-1 border-2 rounded-xl
               ${filter === 'Food' ? eventColors['Food-Filter'] : eventColors['Food']}`}
             >
               Food
-            </div>
+            </div> */}
 
             <div
-              onClick={() => changeFilter('Workshop')}
+              onClick={() => changeFilter('Activities')}
               className={`text-sm cursor-pointer mx-1 px-2 h-8 py-1 border-2 rounded-xl
-              ${filter === 'Workshop' ? eventColors['Workshop-Filter'] : eventColors['Workshop']}`}
+              ${
+                filter === 'Activities'
+                  ? eventColors['Activities-Filter']
+                  : eventColors['Activities']
+              }`}
             >
-              Workshop
-            </div>
-
-            <div
-              onClick={() => changeFilter('Social')}
-              className={`text-sm cursor-pointer mx-1 px-2 h-8 py-1 border-2 rounded-xl
-              ${filter === 'Social' ? eventColors['Social-Filter'] : eventColors['Social']}`}
-            >
-              Social
+              Activities
             </div>
           </div>
         </div>

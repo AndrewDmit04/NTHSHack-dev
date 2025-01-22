@@ -39,11 +39,11 @@ export default function EventForm({ event, onSubmitClick, formAction }: EventFor
         <option value="" disabled>
           Choose an event type
         </option>
-        <option value="Required">Required Event</option>
-        <option value="Sponsor">Sponsor Event</option>
+        <option value="ChallengeOpensCloses">ChallengeOpensCloses Event</option>
+        <option value="General">General Event</option>
         <option value="Food">Food Event</option>
-        <option value="Workshop">Workshop Event</option>
-        <option value="Social">Social Event</option>
+        <option value="Workshops">Workshops Event</option>
+        <option value="Activities">Activities Event</option>
       </select>
       <input
         type="text"
