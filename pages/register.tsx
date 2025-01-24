@@ -278,6 +278,12 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
               {registrationSection == 0 && (
                 <section className="bg-white lg:w-3/5 md:w-3/4 w-full min-h-[35rem] mx-auto rounded-2xl md:py-4 py-6 px-8 mb-8 text-[#4C4950]">
                   <header>
+                    <a
+                      href="https://docs.google.com/forms/d/1KBXf1hFQsdNMBhRFRxE0f3pYwA0OYwXNRxJcobg823k/viewform?edit_requested=true"
+                      rel="noopener noreferrer"
+                    >
+                      Register Here
+                    </a>
                     <h1 className="text-primaryDark lg:text-4xl sm:text-3xl text-2xl font-bold text-center lg:mt-0 mt-4 mb-4 poppins-bold">
                       Hacker Registration
                     </h1>
