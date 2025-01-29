@@ -388,35 +388,6 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                     ))}
                   </div>
                   {/* Resume Upload */}
-                  <div className=" mt-8">
-                    Upload your resume:
-                    <br />
-                    <input
-                      onChange={(e) => handleResumeFileChange(e)}
-                      name="resume"
-                      type="file"
-                      formEncType="multipart/form-data"
-                      accept=".pdf, .doc, .docx, image/png, image/jpeg, .txt, .tex, .rtf"
-                      className="cursor-pointer w-full text-complementary border border-complementary/20 rounded-md file:md:p-2 file:p-1 file:bg-primaryDark file:text-white file:cursor-pointer file:h-full file:rounded-l-md file:border-none"
-                    />
-                    <br />
-                    <p className="text-xs text-complementary/50">
-                      Accepted file types: .pdf, .doc, .docx, .png, .jpeg, .txt, .tex, .rtf
-                    </p>
-                  </div>
-                  {/* Submit */}
-                  <div className="text-white absolute right-4">
-                    <button
-                      type="submit"
-                      className="mr-auto cursor-pointer px-4 py-2 rounded-lg bg-primaryDark hover:brightness-90"
-                      onClick={() => setFormValid(!(!isValid || !dirty))}
-                    >
-                      Submit
-                    </button>
-                    {!isValid && !formValid && (
-                      <div className="text-red-600">Error: The form has invalid fields</div>
-                    )}
-                  </div>
                 </section>
               )}
             </Form>
