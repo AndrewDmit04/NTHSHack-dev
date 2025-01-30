@@ -31,29 +31,6 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
     startTime: props.dateCard[0]?.startTime,
   };
 
-  /* Set event dates and times */
-  const day1StartDateAndTime = new Date(
-    dateValues['2025'],
-    dateValues['March'],
-    dateValues['Saturday'],
-    dateValues['9:00AM'],
-    0,
-  );
-  const day2StartDateAndTime = new Date(
-    dateValues['2025'],
-    dateValues['March'],
-    dateValues['Sunday'],
-    dateValues['9:00AM'],
-    0,
-  );
-  const eventEndDateAndTime = new Date(
-    dateValues['2025'],
-    dateValues['March'],
-    dateValues['Sunday'] + 1,
-    dateValues['5:00PM'],
-    0,
-  );
-
   /* Filter Functionality */
   const [filter, setFilter] = useState('All');
 
@@ -64,78 +41,6 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
       setFilter(newFilter);
     }
   };
-
-  /* Event Component */
-  const Event = ({ data, index, arrayLength }) => {
-    const startDate = new Date(data.startDate);
-    const formattedTime = startDate
-      .toLocaleString([], { hour: 'numeric', minute: 'numeric' })
-      .replace(' ', '')
-      .replace('AM', 'am')
-      .replace('PM', 'pm');
-
-    const showEvent = filter === 'All' || filter === data.type;
-    const showFilteredEvents = filter !== 'All';
-
-    const isLastEvent = index === arrayLength - 1;
-    const hasEvenIndex = index % 2 === 0;
-
-    return (
-      showEvent && (
-        <>
-          <div
-            className={`${
-              !showFilteredEvents
-                ? `${!hasEvenIndex && filter === 'All' ? 'bg-[#F2F3FF]' : 'bg-white'} 
-                             ${
-                               !isLastEvent && filter === 'All'
-                                 ? 'p-4 border-b border-[#05149C]'
-                                 : 'rounded-b-xl p-4'
-                             }`
-                : 'p-4 border-b border-[#05149C]'
-            }
-                          `}
-          >
-            <div className="flex justify-between pb-1">
-              <div className="text-md font-bold font-dmSans">{formattedTime}</div>
-              <div className="text-md font-bold font-dmSans">{data.title}</div>
-            </div>
-            <div className="flex justify-between">
-              <div
-                className={`bg-white text-xs rounded-xl py-1 px-2 border-2 font-dmSans ${
-                  eventColors[data.type]
-                }`}
-              >
-                {data.type}
-              </div>
-              <div className="text-gray-600 flex items-center font-dmSans">
-                <LocationOnIcon style={{ fontSize: 'large', marginRight: '2px' }} />
-                {data.location}
-              </div>
-            </div>
-          </div>
-        </>
-      )
-    );
-  };
-
-  /* Filter Daily Events */
-  const getDailyEvents = (startTime, endTime) => {
-    return props.scheduleCard
-      .sort((a, b) => {
-        return +new Date(a.startDate) - +new Date(b.startDate);
-      })
-      .filter((event) => {
-        const eventDate = new Date(event.startDate);
-        return eventDate >= startTime && eventDate <= endTime;
-      })
-      .map((event, index, array) => (
-        <Event data={event} key={event.title + index} index={index} arrayLength={array.length} />
-      ));
-  };
-
-  // const day1Events = getDailyEvents(day1StartDateAndTime, day2StartDateAndTime);
-  // const day2Events = getDailyEvents(day2StartDateAndTime, eventEndDateAndTime);
 
   const schedule = {
     day1: [
@@ -159,7 +64,7 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
       { time: '9:00AM', description: 'Breakfast / Check-in', category: 'general' },
       { time: '9:30AM', description: 'Remarks', category: 'general' },
       { time: '10:00AM', description: 'Tower Building Tournament', category: 'activity' },
-      { time: '11:00AM', description: 'Women in STEM Panel', category: 'panel' },
+      { time: '11:00AM', description: 'Women in STEM Panel', category: 'workshop' },
       { time: '12:00PM', description: 'Lunch', category: 'general' },
       { time: '12:00PM', description: 'Pie Game Show', category: 'activity' },
       { time: '2:00PM', description: '**Challenge Closes**', category: 'challenge' },
@@ -173,17 +78,30 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
     general: 'bg-green-200 text-green-900',
     challenge: 'bg-red-200 text-red-900',
     workshop: 'bg-blue-200 text-blue-900',
-    panel: 'bg-blue-200 text-blue-900',
     activity: 'bg-yellow-200 text-yellow-900',
   };
 
   const renderEvents = (events) =>
-    events.map((event, index) => (
-      <div key={index} className={`p-2 m-2 rounded-md ${categoryColors[event.category]}`}>
-        <div className="font-bold">{event.time}</div>
-        <div>{event.description}</div>
-      </div>
-    ));
+    events
+      .filter((event) => {
+        if (filter === 'All') return true; // Show all events if 'All' is selected
+
+        // Map filter names to their corresponding event categories
+        const categoryMap = {
+          General: ['general'],
+          ChallengeOpensCloses: ['challenge'],
+          Workshops: ['workshop'],
+          Activities: ['activity'],
+        };
+
+        return categoryMap[filter]?.includes(event.category.toLowerCase());
+      })
+      .map((event, index) => (
+        <div key={index} className={`p-2 m-2 rounded-md ${categoryColors[event.category]}`}>
+          <div className="font-bold">{event.time}</div>
+          <div>{event.description}</div>
+        </div>
+      ));
 
   const day1Events = renderEvents(schedule.day1);
   const day2Events = renderEvents(schedule.day2);
