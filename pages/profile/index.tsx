@@ -243,9 +243,6 @@ export default function ProfilePage() {
                   </Link> */}
                 </div>
               </div>
-              <p className="text-lg text-nowrap mr-4 text-[#4A5156] font-bold underline">
-                Decisions will be out by 11/08/2024
-              </p>
             </div>
 
             <div className="flex flex-col">

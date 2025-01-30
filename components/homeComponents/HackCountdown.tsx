@@ -29,10 +29,10 @@ const Countdown = () => {
       const eventDate = new Date(config.targetDate);
       const timeDifference = eventDate.getTime() - now.getTime();
 
-      const days = 0;
-      const hours = 0;
-      const minutes = 0;
-      const seconds = 0;
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeDifference / 1000 / 60) % 60);
+      const seconds = Math.floor((timeDifference / 1000) % 60);
 
       setTimeLeft({ days, hours, minutes, seconds });
     }, 1000);

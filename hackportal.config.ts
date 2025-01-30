@@ -796,7 +796,7 @@ const setInitialValues = (obj, finalValues, savedValues) => {
 // export const formInitialValues = getInitialValues();
 
 export const config = {
-  targetDate: '2024-11-15T18:00:00-11:00',
+  targetDate: '2025-03-08T09:00:00Z',
 };
 
 //extracting statRecords for general stats

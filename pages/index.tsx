@@ -27,6 +27,8 @@ export default function Home(props: {
 }) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    console.log(props.scheduleCard);
+    console.log(props.dateCard);
     setLoading(false);
   }, []);
 
@@ -41,7 +43,7 @@ export default function Home(props: {
   return (
     <>
       <Head>
-        <title>HackUTD 2024</title>
+        <title>NTHS 2024</title>
         <meta name="description" content="A default HackPortal instance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -112,7 +114,7 @@ export default function Home(props: {
             </div>
           </div>
 
-          <Image
+          {/* <Image
             style={{
               position: 'absolute',
               top: '1100px',
@@ -123,7 +125,7 @@ export default function Home(props: {
             width={300}
             height={300}
             alt="cloud.png"
-          />
+          /> */}
 
           <HomeSchedule scheduleCard={props.scheduleCard} dateCard={props.dateCard} />
           <HomeChallengesComponent challenges={props.challenges} />

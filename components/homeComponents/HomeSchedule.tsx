@@ -165,6 +165,7 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
       })
       .filter((event) => {
         const eventDate = new Date(event.startDate);
+        console.log(eventDate, startTime, endTime);
         return eventDate >= startTime && eventDate <= endTime;
       });
     return events.map((event, index, array) => (
@@ -201,7 +202,7 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
       <BackgroundAssets />
 
       <div className={styles.content}>
-        <HomeSpeakers />
+        {/* <HomeSpeakers />  speaker deleted*/}
         <div
           id="schedule-section"
           ref={scheduleRef}
