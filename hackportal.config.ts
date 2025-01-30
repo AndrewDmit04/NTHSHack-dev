@@ -1,5 +1,7 @@
-import schools from './public/schools.json';
+//import schools from './public/schools.json';
 import majors from './public/majors.json';
+import highSchools from './public/highschools.json';
+import roles from './public/roles.json';
 
 export const hackPortalConfig: HackPortalConfig = {
   //registration fields are separated by question topics (general, school, hackathon experience, etc. )
@@ -145,29 +147,28 @@ export const hackPortalConfig: HackPortalConfig = {
       {
         datalistQuestions: [
           {
-            //University question
-            question:
-              'This event is for college students worldwide. Which university do you attend?',
-            id: 'university',
-            name: 'university',
+            //High School question
+            question: 'What High School do you attend?',
+            id: 'highSchool',
+            name: 'highSchool',
             required: true,
-            datalist: 'schools',
-            options: schools.map(({ university }) => ({
-              title: university,
-              value: university,
+            datalist: 'highSchools',
+            options: highSchools.map(({ school }) => ({
+              title: school,
+              value: school,
             })),
             initialValue: '',
           },
           {
             //Major question
-            question: 'All majors are welcome at this event. What is your major?',
-            id: 'major',
-            name: 'major',
+            question: 'What Role are you most interested in doing?',
+            id: 'role',
+            name: 'role',
             required: true,
-            datalist: 'majors',
-            options: majors.map(({ major }) => ({
-              title: major,
-              value: major,
+            datalist: 'roles',
+            options: roles.map(({ role }) => ({
+              title: role,
+              value: role,
             })),
             initialValue: '',
           },
@@ -200,8 +201,8 @@ export const hackPortalConfig: HackPortalConfig = {
                 value: 'senior',
               },
               {
-                title: 'Graduate Student',
-                value: 'grad',
+                title: 'Other',
+                value: 'Other',
               },
             ],
           },
@@ -404,40 +405,40 @@ export const hackPortalConfig: HackPortalConfig = {
           },
         ],
       },
-      {
-        checkboxQuestions: [
-          {
-            //Companies question
-            question: 'Companies to send my resume to:',
-            required: false,
-            id: 'companies',
-            name: 'companies',
-            initialValue: [],
-            options: [
-              {
-                title: 'State Farm',
-                value: 'State Farm',
-              },
-              {
-                title: 'American Airlines',
-                value: 'American Airlines',
-              },
-              {
-                title: 'Capital One',
-                value: 'Capital One',
-              },
-              {
-                title: 'Ebay',
-                value: 'Ebay',
-              },
-              {
-                title: 'Facebook',
-                value: 'Facebook',
-              },
-            ],
-          },
-        ],
-      },
+      //{
+      //  checkboxQuestions: [
+      //    {
+      //      //Companies question
+      //      question: 'Companies to send my resume to:',
+      //      required: false,
+      //      id: 'companies',
+      //      name: 'companies',
+      //      initialValue: [],
+      //      options: [
+      //        {
+      //          title: 'State Farm',
+      //          value: 'State Farm',
+      //        },
+      //        {
+      //          title: 'American Airlines',
+      //          value: 'American Airlines',
+      //        },
+      //        {
+      //          title: 'Capital One',
+      //          value: 'Capital One',
+      //        },
+      //        {
+      //          title: 'Ebay',
+      //          value: 'Ebay',
+      //        },
+      //        {
+      //          title: 'Facebook',
+      //          value: 'Facebook',
+      //        },
+      //      ],
+      //    },
+      //  ],
+      //},
     ],
   },
 };
