@@ -1,6 +1,7 @@
 import { firestore } from 'firebase-admin';
 import { NextApiRequest, NextApiResponse } from 'next';
 import initializeApi from '../../../lib/admin/init';
+import { OrderedListOutlined } from '@ant-design/icons';
 
 initializeApi();
 const db = firestore();
@@ -17,7 +18,7 @@ const FAQS_COLLECTION = '/faqs';
  *
  */
 async function getFaqs(req: NextApiRequest, res: NextApiResponse) {
-  const snapshot = await db.collection(FAQS_COLLECTION).get();
+  const snapshot = await db.collection(FAQS_COLLECTION).orderBy('order', 'asc').get();
   let data = [];
   snapshot.forEach((doc) => {
     data.push({ id: doc.id, ...doc.data() });
