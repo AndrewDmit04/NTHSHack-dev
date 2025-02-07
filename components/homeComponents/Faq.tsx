@@ -83,7 +83,7 @@ export default function FaqPage({ fetchedFaqs }: { fetchedFaqs: AnsweredQuestion
         `}
       </style>
       <Head>
-        <title>HackUTD 2024</title>
+        <title>NTHSHack 2025</title>
         <meta name="description" content="HackPortal's Frequently Asked Questions" />
       </Head>
       <div className="top-6">

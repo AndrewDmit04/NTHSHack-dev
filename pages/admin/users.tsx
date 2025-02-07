@@ -338,7 +338,7 @@ export default function UserPage() {
   return (
     <div className="flex flex-col flex-grow items-center">
       <Head>
-        <title>HackUTD 2024 - Admin</title> {/* !change */}
+        <title>NTHSHack 2025 - Admin</title> {/* !change */}
         <meta name="description" content="HackPortal's Admin Page" />
       </Head>
 

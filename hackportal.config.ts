@@ -10,7 +10,7 @@ export const hackPortalConfig: HackPortalConfig = {
   //  which hold all the questions of that type
   //add extra questions types(even ones already used) to question topics and add more questions under each question type
   //questions are displayed on page in order
-  groupNames: ['Duck', 'Corgi', 'Capybara', 'Frog'],
+  groupNames: ['Robot', 'Alien', 'Cyborg', 'Astronaut'],
   registrationFields: {
     //Question Topic
     generalQuestions: [
@@ -317,50 +317,7 @@ export const hackPortalConfig: HackPortalConfig = {
         ],
       },
     ],
-    //Short answer questions
-    shortAnswerQuestions: [
-      {
-        textAreaQuestions: [
-          {
-            //Why do you want to attend question
-            question: 'Why do you want to attend HackUTD Ripple Effect?',
-            id: 'whyAttend',
-            name: 'whyAttend',
-            required: true,
-            initialValue: '',
-            placeholder: '',
-          },
-          {
-            //How many hackathons submitted question
-            question: 'How many hackathons have you submitted to and what did you learn from them?',
-            id: 'hackathonNumber',
-            name: 'hackathonNumber',
-            required: true,
-            initialValue: '',
-            placeholder: '',
-          },
-          {
-            //What do you hope to learn from HackUTD as a first timer question
-            question:
-              'If you haven’t been to a hackathon, what do you hope to learn from HackUTD Ripple Effect?',
-            id: 'hackathonFirstTimer',
-            name: 'hackathonFirstTimer',
-            required: true,
-            initialValue: '',
-            placeholder: '',
-          },
-          {
-            //What are you looking forward to question
-            question: 'What are you looking forward to at HackUTD Ripple Effect?',
-            id: 'lookingForward',
-            name: 'lookingForward',
-            required: true,
-            initialValue: '',
-            placeholder: '',
-          },
-        ],
-      },
-    ],
+
     //Question Topic
     eventInfoQuestions: [
       {
@@ -644,7 +601,6 @@ export interface HackPortalConfig {
     generalQuestions: QuestionTypes[];
     schoolQuestions: QuestionTypes[];
     hackathonExperienceQuestions: QuestionTypes[];
-    shortAnswerQuestions: QuestionTypes[];
     eventInfoQuestions: QuestionTypes[];
     sponsorInfoQuestions: QuestionTypes[];
     teammateQuestions: QuestionTypes[];
@@ -712,9 +668,6 @@ export const generateInitialValues = (savedValues) => {
     setInitialValues(obj, finalValues, savedValues);
   }
   for (let obj of hackPortalConfig.registrationFields.hackathonExperienceQuestions) {
-    setInitialValues(obj, finalValues, savedValues);
-  }
-  for (let obj of hackPortalConfig.registrationFields.shortAnswerQuestions) {
     setInitialValues(obj, finalValues, savedValues);
   }
   for (let obj of hackPortalConfig.registrationFields.eventInfoQuestions) {
