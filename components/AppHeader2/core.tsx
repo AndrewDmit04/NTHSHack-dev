@@ -75,24 +75,6 @@ export default function AppHeader2_Core(props: Props) {
         },
       },
       {
-        text: 'Livestream',
-        onClick: async () => {
-          if (Object.hasOwn(callbackRegistry, router.pathname)) {
-            await callbackRegistry[router.pathname]();
-          }
-          router.push('/live');
-        },
-      },
-      {
-        text: 'Hackerpacks',
-        onClick: async () => {
-          if (Object.hasOwn(callbackRegistry, router.pathname)) {
-            await callbackRegistry[router.pathname]();
-          }
-          router.push('/hackerpacks');
-        },
-      },
-      {
         text: 'Schedule',
         onClick: () => {
           if (router.pathname === '/') {
@@ -124,8 +106,8 @@ export default function AppHeader2_Core(props: Props) {
           id={itemIdRoot + idx}
           onClick={item.onClick}
           className={clsx(
-            'py-2 px-4 text-[#40B7BA] cursor-pointer flex justify-center font-bold',
-            'hover:bg-[#DFFEFF] transition-[background] duration-300 ease-in-out',
+            'py-2 px-4 text-white cursor-pointer flex justify-center font-bold',
+            'hover:bg-black transition-[background] duration-300 ease-in-out',
             'rounded-[20px]',
           )}
         >
@@ -146,13 +128,13 @@ export default function AppHeader2_Core(props: Props) {
               'rounded-[20px]',
             )}
           >
-            <div className="text-[#40B7BA]">Admin</div>
+            <div className="text-white">Admin</div>
             <svg
               xmlns="http:www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke="#40B7BA"
+              stroke="white"
               className="size-4"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -168,7 +150,7 @@ export default function AppHeader2_Core(props: Props) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 mt-2 w-full origin-top-right divide-x divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none flex">
+            <Menu.Items className="absolute right-0 mt-2 w-full origin-top-right divide-x divide-gray-100 rounded-md bg-slate-500 shadow-lg ring-1 ring-black/5 focus:outline-none flex">
               <div className="px-1 py-1 w-1/4">
                 <AdminNavbarColumn
                   sectionTitle="Admin"
@@ -237,7 +219,7 @@ export default function AppHeader2_Core(props: Props) {
               await router.push('/profile');
             }}
           >
-            <div className="py-3 px-5 rounded-[30px] bg-[#40B7BA] font-bold">Profile</div>
+            <div className="py-3 px-5 rounded-[30px] bg-slate-500 font-bold">Profile</div>
           </button>
         )}
       </div>,
@@ -252,7 +234,7 @@ export default function AppHeader2_Core(props: Props) {
       {/* Real navbar */}
       <div
         id="nav-bar"
-        className="relative font-dmSans border-[3px] border-[rgba(30,30,30,0.60)] rounded-xl p-1 bg-white opacity-90 text-[#40B7BA] cursor-pointer flex-wrap"
+        className="relative font-dmSans border-[3px] border-[rgba(30,30,30,0.60)] rounded-xl p-1 bg-slate-500 opacity-90 text-white cursor-pointer flex-wrap"
       >
         {/* Sign out button */}
         <button
@@ -264,7 +246,7 @@ export default function AppHeader2_Core(props: Props) {
                 ? '-left-[calc(102px+0.5rem)] lg:left-[unset] lg:-right-[calc(102px+1rem)] xl:-right-[calc(102px+2rem)]'
                 : '-right-[calc(102px+0.5rem)] lg:-right-[calc(102px+2rem)]'
             }`,
-            'text-sm py-3 px-4 rounded-[30px] bg-[#40B7BA] font-bold text-white border-2 border-white',
+            'text-sm py-3 px-4 rounded-[30px] bg-slate-500 font-bold text-white border-2 border-white',
           )}
           onClick={async () => {
             if (user) {

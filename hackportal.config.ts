@@ -1,6 +1,8 @@
 import schools from './public/schools.json';
 import majors from './public/majors.json';
 import countries from './public/countries.json';
+import highSchools from './public/highschools.json';
+import roles from './public/roles.json';
 
 export const hackPortalConfig: HackPortalConfig = {
   //registration fields are separated by question topics (general, school, hackathon experience, etc. )
@@ -169,15 +171,14 @@ export const hackPortalConfig: HackPortalConfig = {
         dropdownQuestions: [
           {
             //University question
-            question:
-              'This event is for college students worldwide. Which university do you attend?',
-            id: 'university',
-            name: 'university',
+            question: 'What High School do you attend?',
+            id: 'highSchool',
+            name: 'highSchool',
             required: true,
             options: [
-              ...schools.map(({ university }) => ({
-                title: university,
-                value: university,
+              ...highSchools.map(({ school }) => ({
+                title: school,
+                value: school,
               })),
               { title: 'Other', value: 'Other' },
             ],
@@ -185,16 +186,15 @@ export const hackPortalConfig: HackPortalConfig = {
           },
           {
             //Major question
-            question: 'All majors are welcome at this event. What is your major?',
-            id: 'major',
-            name: 'major',
+            question: 'What Role are you most interested in doing?',
+            id: 'role',
+            name: 'role',
             required: true,
             options: [
-              ...majors.map(({ major }) => ({
-                title: major,
-                value: major,
+              ...roles.map(({ role }) => ({
+                title: role,
+                value: role,
               })),
-              { title: 'Other', value: 'Other' },
             ],
             initialValue: '',
           },
@@ -223,8 +223,8 @@ export const hackPortalConfig: HackPortalConfig = {
                 value: 'senior',
               },
               {
-                title: 'Graduate Student',
-                value: 'grad',
+                title: 'Other',
+                value: 'other',
               },
             ],
           },
@@ -278,7 +278,7 @@ export const hackPortalConfig: HackPortalConfig = {
           },
           {
             //Heard from question
-            question: 'Where did you hear about HackUTD Ripple Effect?',
+            question: 'Where did you hear about this Hackathon?',
             required: true,
             id: 'heardFrom',
             name: 'heardFrom',
@@ -303,6 +303,10 @@ export const hackPortalConfig: HackPortalConfig = {
               {
                 title: 'TikTok',
                 value: 'TikTok',
+              },
+              {
+                title: 'UTD ACM Outreach',
+                value: 'UTD ACM Outreach',
               },
               {
                 title: 'Other',

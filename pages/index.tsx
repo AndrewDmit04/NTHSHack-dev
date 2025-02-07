@@ -54,7 +54,7 @@ export default function Home(props: {
 
       <div style={{ position: 'relative', zIndex: 0 }}>
         {/* TODO: enable this when UI is finalized */}
-        {/* <div
+        <div
           style={{
             position: 'absolute',
             top: 0,
@@ -66,7 +66,7 @@ export default function Home(props: {
             backgroundPosition: 'center top',
             backgroundRepeat: 'no-repeat',
           }}
-        /> */}
+        />
 
         {/* Themed ocean background of HackUTD */}
         <Image

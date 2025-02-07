@@ -127,7 +127,7 @@ export default function AppHeader2_Wrapper() {
         className={clsx(
           'w-[112px]',
           `md:hidden fixed z-[1000] ${location.pathname === '/' ? 'left-[1rem]' : 'right-[1rem]'}`,
-          'mt-10 py-3 px-5 rounded-[30px] bg-[#40B7BA] font-bold text-white ml-3 border-2 border-white',
+          'mt-10 py-3 px-5 rounded-[30px] bg-slate-500 font-bold text-white ml-3 border-2 border-white',
         )}
         onClick={async () => {
           if (user) {
