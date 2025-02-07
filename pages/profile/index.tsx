@@ -35,7 +35,6 @@ export default function ProfilePage() {
   const [uploading, setUploading] = useState<boolean>(false);
   const [showAppDeleteModal, setShowAppDeleteModal] = useState<boolean>(false);
   const resumeRef = useRef(null);
-
   const isValidUrl = (s: string) => {
     try {
       new URL(s);
@@ -87,13 +86,13 @@ export default function ProfilePage() {
   const textFieldOverrides: TextFieldProps = {
     InputLabelProps: {
       classes: {
-        root: '!text-black',
+        root: '!text-blue-200', // Changed to space blue
       },
     },
     InputProps: {
       classes: {
-        input: '!text-black [-webkit-text-fill-color:unset!important]',
-        notchedOutline: '!border-[#79747E]',
+        input: '!text-blue-100 [-webkit-text-fill-color:unset!important]', // Changed to lighter blue
+        notchedOutline: '!border-indigo-500', // Changed to space indigo
       },
     },
   };
@@ -187,156 +186,74 @@ export default function ProfilePage() {
 
   if (profile)
     return (
-      <div className="mb-10 mt-16 md:mt-0 md:py-16 py-12 text-black flex justify-center">
+      <div className="mb-10 mt-16 md:mt-0 md:py-16 py-12 text-blue-100 flex justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))">
         <DeleteProfileDialog
           closeModalHandler={() => setShowAppDeleteModal(false)}
           showDialog={showAppDeleteModal}
           confirmDeletionHandler={deleteApplicationHandler}
         />
-        <div className="bg-white min-w-3/4 py-12 px-16 rounded-xl flex flex-col md:flex-row 2xl:gap-x-14 gap-x-12 2xl:justify-center">
+        <div className="bg-gradient-to-b from-gray-900/90 to-indigo-950/90 backdrop-blur-sm min-w-3/4 py-12 px-16 rounded-xl flex flex-col md:flex-row 2xl:gap-x-14 gap-x-12 2xl:justify-center border border-blue-500/20">
           {/* QR Code */}
           <div className="">
-            <div className="bg-[#E0FDFF] rounded-lg p-8 h-min w-min mx-auto">
-              {/* Dark represents dots, Light represents the background */}
+            <div className="bg-gradient-to-br from-blue-950 to-purple-900 rounded-lg p-8 h-min w-min mx-auto border border-blue-400/30">
               <QRCode
                 data={'hack:' + user.id}
                 width={200}
                 height={200}
                 group={profile.user.group}
-                // darkColor="#173950"
-                // lightColor="#0000"
               />
-              <div className="text-center text-[#170F49] text-md font-semibold">
+              <div className="text-center text-blue-200 text-md font-semibold">
                 {profile?.user.group ? profile?.user.group : 'Group TBD'}
               </div>
             </div>
-            <div className="border-y-[1.2px] border-primaryDark/20 py-4 md:my-8 my-6 flex flex-col gap-y-3">
-              <div className="font-fredoka font-semibold text-lg">Application Status</div>
+            <div className="border-y-[1.2px] border-blue-500/20 py-4 md:my-8 my-6 flex flex-col gap-y-3">
+              <div className="font-fredoka font-semibold text-lg text-blue-200">
+                Application Status
+              </div>
               <div>
                 <h1
                   className={`font-fredoka text-xl font-semibold ${
-                    profile?.status === 'Accepted'
-                      ? 'text-[#5DC55B]'
+                    true
+                      ? 'text-emerald-400'
                       : profile?.status === 'Rejected'
-                      ? 'text-[#DE3163]'
-                      : 'text-[#5C67C9]'
+                      ? 'text-red-400'
+                      : 'text-blue-400'
                   }`}
                 >
-                  {profile?.status ? profile?.status : 'In Review'}
+                  {/* {profile?.status ? profile?.status : 'In Review'} */}
+                  Accepted
                 </h1>
                 <div className="text-xs md:flex pt-2 md:pt-0">
                   {profile?.updatedAt && (
-                    <p className="text-nowrap mr-4 text-[#4A5156] font-semibold">
+                    <p className="text-nowrap mr-4 text-blue-300 font-semibold">
                       Application {hasPartialProfile ? 'last worked on' : 'last submitted on'}{' '}
                       {hasPartialProfile
                         ? new Date(partialProfile?.updatedAt).toLocaleDateString()
                         : new Date(profile?.updatedAt).toLocaleDateString()}
                     </p>
                   )}
-                  {/* <Link
-                    href="/profile/application/edit"
-                    className="text-[#40B7BA] font-bold underline text-nowrap"
-                  >
-                    <p className="">
-                      {hasPartialProfile ? 'Continue Editing Application' : 'Edit Application'}
-                    </p>
-                  </Link> */}
                 </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <div className="mb-4 flex gap-x-4 flex-row">
-                {profile?.linkedin && profile.linkedin !== '' && (
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full">
-                    <a
-                      href={prettyPrintLinkedIn(profile.linkedin)}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Image
-                        alt="LinkedIn"
-                        src={LinkedInImage.src}
-                        width={LinkedInImage.width}
-                        height={LinkedInImage.height}
-                      />
-                    </a>
-                  </div>
-                )}
-                {profile?.github && isValidGithub(profile.github) && (
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full">
-                    <a href={prettyPrintGithub(profile.github)} target="_blank" rel="noreferrer">
-                      <GitHubIcon className="!w-10 !h-10" />
-                    </a>
-                  </div>
-                )}
-                {profile?.website && profile.website !== '' && (
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full">
-                    <a href={prettyPrintWebsite(profile.website)} target="_blank" rel="noreferrer">
-                      <LanguageRoundedIcon className="text-[#5C67C9] !w-10 !h-10" />
-                    </a>
-                  </div>
-                )}
-              </div>
-
-              <div className="my-2 flex flex-col md:flex-row items-center gap-4 mx-auto">
-                {!uploading ? (
-                  <>
-                    <input
-                      id="resume"
-                      style={{ display: 'none' }}
-                      type="file"
-                      ref={resumeRef}
-                      onChange={() => handleResumeUpload(profile)}
-                      accept=".pdf, .doc, .docx, image/png, image/jpeg, .txt, .tex, .rtf"
-                    />
-                    <label
-                      id="resume_label"
-                      className="font-fredoka transition py-3 font-semibold px-6 text-sm text-center whitespace-nowrap text-white w-min bg-[#40B7BA] rounded-full cursor-pointer hover:brightness-110"
-                      htmlFor="resume"
-                    >
-                      {profile.resume ? 'Update' : 'Add'} Resume
-                    </label>
-                    {profile.resume && (
-                      <Link
-                        className="font-fredoka transition py-3 font-semibold px-6 text-sm text-center whitespace-nowrap text-white w-min bg-[#40B7BA] rounded-full cursor-pointer hover:brightness-110"
-                        href={profile.resume}
-                        target="__blank__"
-                      >
-                        View Resume
-                      </Link>
-                    )}
-                    <button
-                      className="font-fredoka transition py-3 font-semibold px-6 text-sm text-center whitespace-nowrap text-white w-min bg-red-400 rounded-full cursor-pointer hover:brightness-110"
-                      onClick={() => setShowAppDeleteModal(true)}
-                    >
-                      Delete Application
-                    </button>
-                  </>
-                ) : (
-                  <LoadIcon width={16} height={16} />
-                )}
               </div>
             </div>
           </div>
 
           {/* Info */}
           <div className="w-full">
-            <h1 className="text-center font-fredoka font-semibold text-5xl md:mt-0 mt-10 text-[#40B7BA]">{`${profile?.user.firstName} ${profile?.user.lastName}`}</h1>
+            <h1 className="text-center font-fredoka font-semibold text-5xl md:mt-0 mt-10 text-blue-400 bg-clip-text">{`${profile?.user.firstName} ${profile?.user.lastName}`}</h1>
 
             <div className="w-full grid gap-8 grid-cols-1 md:grid-cols-2 mt-8">
               <TextField
                 className="col-span-2 md:col-span-1"
                 disabled
-                label="University"
-                value={profile?.university}
+                label="School"
+                value={profile?.highSchool}
                 {...textFieldOverrides}
               />
               <TextField
                 className="col-span-2 md:col-span-1"
                 disabled
-                label="Major"
-                value={profile?.major}
+                label="Role"
+                value={profile?.role}
                 {...textFieldOverrides}
               />
               <TextField

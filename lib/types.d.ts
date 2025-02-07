@@ -69,6 +69,8 @@ type User = Person & {
  * Information about a specific event registration.
  */
 type Registration = {
+  role: string;
+  highSchool: string;
   id: string;
   /**
    * A UNIX timestamp corresponding to when a hacker registered for the event.
@@ -345,6 +347,8 @@ type UserIdentifier = Omit<Registration, 'scans'> & {
 };
 
 type PartialRegistration = {
+  highSchool: string;
+  role: string;
   id: string;
   /**
    * A UNIX timestamp corresponding to when a hacker registered for the event.

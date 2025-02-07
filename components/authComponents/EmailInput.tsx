@@ -1,7 +1,6 @@
 import React from 'react';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { Mail } from 'lucide-react';
 
-// Define the type for the props by extending React.HTMLProps<HTMLInputElement>
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const EmailInput: React.FC<InputProps> = (props) => {
@@ -11,15 +10,13 @@ const EmailInput: React.FC<InputProps> = (props) => {
     <div
       role="input"
       aria-required="true"
-      className={`poppins-semibold text-complementaryLight border-b-2 mb-8 ${
-        isFocused ? 'border-b-primaryDark' : ''
-      }`}
+      className="poppins-semibold text-complementaryLight mb-8"
     >
-      <label htmlFor="email" className="block text-md font-medium">
+      <label htmlFor="email" className="block text-md font-medium text-white">
         Email
       </label>
-      <div className="flex items-center">
-        <EmailOutlinedIcon />
+      <div className="relative flex items-center">
+        <Mail className="absolute left-3 text-white/70" size={20} />
         <input
           {...props}
           type="email"
@@ -27,7 +24,7 @@ const EmailInput: React.FC<InputProps> = (props) => {
           autoComplete="email"
           className={`${
             props.className || ''
-          } w-full border-none focus:ring-0 placeholder-complementaryLight`}
+          } w-full pl-10 bg-transparent border-b-2 border-white/20 focus:border-blue-400 transition-colors duration-200 focus:ring-0 placeholder-white/50 text-white`}
           onFocus={(e) => {
             if (props.onFocus) props.onFocus(e);
             setIsFocused(true);

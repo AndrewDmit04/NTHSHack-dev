@@ -9,17 +9,17 @@ export interface QRCodeProps {
 }
 
 const IMAGE_GROUP_MAPPING = {
-  Duck: '/assets/ab-duck.png',
-  Capybara: '/assets/ab-capybara.png',
-  Frog: '/assets/ab-frog.png',
-  Corgi: '/assets/ab-doggo.png',
+  Astronaut: '/assets/astro.webp',
+  Alien: '/assets/alien.webp',
+  Robot: '/assets/robot.png',
+  Cyborg: '/assets/cyborg.png',
 };
 
 const COLOR_GROUP_MAPPING = {
-  Corgi: '#E7A65D',
-  Duck: '#000000',
-  Capybara: '#C59E7D',
-  Frog: '#000000',
+  Astronaut: 'black',
+  Robot: 'darkblue',
+  Alien: 'green',
+  Cyborg: 'black',
 };
 
 export default function QRCode({ data, width, height, group }: QRCodeProps) {

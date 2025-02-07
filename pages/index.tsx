@@ -43,7 +43,7 @@ export default function Home(props: {
   return (
     <>
       <Head>
-        <title>NTHS 2024</title>
+        <title>NTHS Hack 2025</title>
         <meta name="description" content="A default HackPortal instance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -132,7 +132,7 @@ export default function Home(props: {
           {/* include HomePrizes in HomeChallenges */}
           {/* <HomePrizes prizes={props.prizeData} /> */}
           <HomeFaq answeredQuestion={props.answeredQuestion} />
-          <HomeSponsors />
+          {/* <HomeSponsors /> */}
           <HomeFooter />
         </div>
       </div>

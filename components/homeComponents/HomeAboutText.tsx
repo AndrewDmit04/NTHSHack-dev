@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import styles from './HomeAboutText.module.css';
 import { SectionReferenceContext } from '@/lib/context/section';
 import gsap from 'gsap';
+import StarField from './StarField';
 
 const HomeAboutText = () => {
   const fish1HoverStyle = {
@@ -75,7 +76,7 @@ const HomeAboutText = () => {
       ref={containerRef}
       className="relative py-12 flex flex-col items-center justify-center font-jua"
       style={{
-        background: '#54DDE8',
+        background: 'black',
         backgroundSize: '100% 100%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -109,10 +110,13 @@ const HomeAboutText = () => {
           }
         `}
       </style>
-
+      <StarField count={50} />
       <h1
         ref={titleRef}
-        className="text-5xl font-bold mb-3 text-center relative font-jua z-10 text-[#F7CE79] text-stroke opacity-0"
+        className="text-5xl font-bold mb-3 text-center relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-400 to-indigo-700 animate-twinkle opacity-0"
+        style={{
+          textShadow: '0 0 20px rgba(147, 51, 234, 0.5)',
+        }}
       >
         About NTHS Hackathon
       </h1>

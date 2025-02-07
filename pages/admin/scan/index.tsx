@@ -275,7 +275,7 @@ export default function Admin() {
   return (
     <div className="relative flex flex-col flex-grow">
       <Head>
-        <title>HackUTD 2024 - Admin</title>
+        <title>NTHSHack 2025 - Admin</title>
         <meta name="description" content="HackPortal's Admin Page" />
       </Head>
       <div className="z-10 md:hidden md:mt-10 mt-10">

@@ -91,7 +91,7 @@ export default function Dashboard(props: {
     <>
       <div className="flex flex-wrap flex-grow">
         <Head>
-          <title>HackUTD 2024 - Dashboard</title> {/* !change */}
+          <title>NTHSHack 2025 - Dashboard</title> {/* !change */}
           <meta name="description" content="HackPortal's Dashboard" />
         </Head>
 

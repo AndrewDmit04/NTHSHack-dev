@@ -120,33 +120,25 @@ export default function AuthPage() {
 
   return (
     <>
-      <section className="min-h-screen mb-16">
-        <div className="hidden md:flex p-4">
-          <Link href="/" passHref legacyBehavior>
-            <div className="cursor-pointer items-center inline-flex text-white font-bold bg-[#40B7BA] rounded-[30px] pr-5 pl-2 py-3 border-2 border-white">
-              <ChevronLeftIcon />
-              Home
-            </div>
-          </Link>
-        </div>
+      <section className="min-h-screen mb-16 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] ">
         <div className="mt-24 md:mt-0 py-2 md:px-16 px-0 flex items-center justify-center flex-wrap">
           <div className="xl:w-1/2 lg:w-2/3 w-5/6 my-4">
             <section
               id="signInSection"
-              className="bg-white 2xl:min-h-[30rem] min-h-[28rem] rounded-lg p-6"
+              className="bg-gradient-to-b from-gray-900/90 to-indigo-950/90 backdrop-blur-sm 2xl:min-h-[30rem] min-h-[28rem] rounded-lg p-6 border border-blue-500/20 shadow-lg shadow-purple-500/20"
             >
               {!passwordResetDialog ? (
                 <>
-                  <h1 className="md:text-3xl text-2xl text-center text-[#40B7BA] mt-4 poppins-bold">
+                  <h1 className="md:text-3xl text-2xl text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mt-4 poppins-bold">
                     {signInOption ? 'Login' : 'Create an account'}
                   </h1>
-                  <div className="text-center text-[#4C495080] mt-4 mb-12 poppins-semibold">
+                  <div className="text-center text-blue-200/80 mt-4 mb-12 poppins-semibold">
                     {signInOption ? ' New to HackUTD?' : 'Already have an account?'}{' '}
                     <span
                       onClick={() =>
                         signInOption ? setSignInOption(false) : setSignInOption(true)
                       }
-                      className="text-[#40B7BA] cursor-pointer underline"
+                      className="text-blue-400 cursor-pointer underline hover:text-blue-300 transition-colors"
                     >
                       {signInOption ? 'Register here!' : 'Sign in'}
                     </span>
@@ -173,17 +165,16 @@ export default function AuthPage() {
                       />
 
                       <div className="inline-flex md:flex justify-between md:flex-row flex-col-reverse poppins-semibold text-sm">
-                        <div className="text-[#40B7BA]">
-                          {/* TODO: should this feature be implemented or does it already exist? */}
+                        <div className="text-blue-400">
                           <input
-                            className="mr-2 r text-[#40B7BA] focus:ring-0 border border-[#40B7BA] text-sm cursor-pointer"
+                            className="mr-2 r text-blue-400 focus:ring-0 border border-blue-400 text-sm cursor-pointer bg-transparent"
                             type="checkbox"
                             onClick={() => setRememberMe(!rememberMe)}
                           />
                           Remember me
                         </div>
                         <div
-                          className="hover:underline cursor-pointer text-left text-[#40B7BA] mb-4 md:mb-0"
+                          className="hover:text-blue-300 transition-colors cursor-pointer text-left text-blue-400 mb-4 md:mb-0"
                           onClick={() => {
                             setPasswordResetDialog(true);
                             setErrorMsg('');
@@ -197,7 +188,7 @@ export default function AuthPage() {
                       <div className="flex justify-center mt-6 mb-4">
                         <button
                           type="button"
-                          className="rounded-lg text-base w-full text-white bg-[#40B7BA] hover:brightness-90 px-4 py-2"
+                          className="rounded-lg text-base w-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all px-4 py-2"
                           onClick={() => {
                             handleSubmit();
                           }}
@@ -206,22 +197,14 @@ export default function AuthPage() {
                         </button>
                       </div>
                     </form>
-                    {/* Error and verification messages */}
-                    <div className="poppins-regular text-center">{prettyPrint(errorMsg)}</div>
-                    {/* !change if needed */}
-                    {/* Uncomment to allow resend verification email option (users could spam) */}
-                    {/* {sendVerification && (
-                    <div className='flex justify-center'>
-                      <button className="underline" onClick={() => sendVerificationEmail()}>
-                        Resend verification
-                      </button>
+                    <div className="poppins-regular text-center text-red-400">
+                      {prettyPrint(errorMsg)}
                     </div>
-                  )} */}
-                    <div className="poppins-regular text-complementaryLight flex justify-center">
+                    <div className="poppins-regular text-blue-200 flex justify-center">
                       <p>or continue with</p>
                     </div>
                     <button
-                      className="mt-2 px-4 py-2 w-full rounded-lg border border-[#4C495026] text-[#79767C] bg-white my-4 text-base font-bold text-center flex items-center justify-center"
+                      className="mt-2 px-4 py-2 w-full rounded-lg border border-blue-500/20 text-blue-200 bg-gray-900/50 backdrop-blur-sm my-4 text-base font-bold text-center flex items-center justify-center hover:bg-gray-800/50 transition-colors"
                       onClick={() => signInWithGoogle()}
                     >
                       <Image src={GoogleIcon} alt="GoogleIcon" width={25} height={25} />
@@ -233,22 +216,22 @@ export default function AuthPage() {
                 <React.Fragment>
                   <div className="text-left">
                     <ArrowBackIcon
-                      className="cursor-pointer text-[#40B7BA]"
+                      className="cursor-pointer text-blue-400 hover:text-blue-300 transition-colors"
                       onClick={() => {
                         setPasswordResetDialog(false);
                         setErrorMsg('');
                       }}
                     />
                   </div>
-                  <h1 className="md:text-3xl text-2xl font-black text-center text-[#40B7BA] mt-4">
+                  <h1 className="md:text-3xl text-2xl font-black text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mt-4">
                     Reset Password
                   </h1>
-                  <div className="text-center text-[#4C495080] mt-4 mb-12">
+                  <div className="text-center text-blue-200/80 mt-4 mb-12">
                     Enter your email address and we&apos;ll send you a link to reset your password.
                   </div>
 
                   <input
-                    className="w-full rounded-md border border-complementary/20 p-2 mb-4"
+                    className="w-full rounded-md border border-blue-500/20 p-2 mb-4 bg-gray-900/50 text-blue-200 placeholder:text-blue-200/50"
                     value={currentEmail}
                     onChange={(e) => setCurrentEmail(e.target.value)}
                     type="text"
@@ -259,7 +242,7 @@ export default function AuthPage() {
                   <div className="flex justify-center mt-6 mb-4">
                     <button
                       type="button"
-                      className="rounded-full text-base w-full text-white bg-[#40B7BA] hover:brightness-90 px-4 py-2"
+                      className="rounded-full text-base w-full text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all px-4 py-2"
                       onClick={() => {
                         sendResetEmail();
                         setErrorMsg('');
@@ -268,8 +251,7 @@ export default function AuthPage() {
                       Send reset link
                     </button>
                   </div>
-                  {/* Error and verification messages */}
-                  <div className="text-left">{errorMsg}</div>
+                  <div className="text-left text-red-400">{errorMsg}</div>
                 </React.Fragment>
               )}
             </section>

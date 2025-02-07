@@ -72,7 +72,6 @@ export default function EditApplication({ allowedRegistrations }: EditApplicatio
       generalQuestions,
       schoolQuestions,
       hackathonExperienceQuestions,
-      shortAnswerQuestions,
       eventInfoQuestions,
       sponsorInfoQuestions,
       teammateQuestions,
@@ -255,7 +254,7 @@ export default function EditApplication({ allowedRegistrations }: EditApplicatio
     <div className="flex flex-col flex-grow mb-10">
       <Head>
         <title>Hacker Application</title>
-        <meta name="description" content="Register for HackUTD 2024" />
+        <meta name="description" content="Register for NTHSHack 2025" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Formik
@@ -341,9 +340,6 @@ export default function EditApplication({ allowedRegistrations }: EditApplicatio
             errors = setErrors(obj, values, errors);
           }
           for (let obj of hackathonExperienceQuestions) {
-            errors = setErrors(obj, values, errors);
-          }
-          for (let obj of shortAnswerQuestions) {
             errors = setErrors(obj, values, errors);
           }
           for (let obj of eventInfoQuestions) {
@@ -554,40 +550,6 @@ export default function EditApplication({ allowedRegistrations }: EditApplicatio
                           }}
                         />
                       )}
-                    </div>
-                    <div className="flex justify-end mt-4">
-                      <button
-                        disabled={!dirty || !allowManualSave}
-                        onClick={async (e) => {
-                          e.preventDefault();
-                          try {
-                            setAllowManualSave(false);
-                            await handleSaveProfile(values, registrationSection, resetForm);
-                          } catch (err) {
-                            alert('Error saving form. Please try again later...');
-                            console.error(err);
-                          } finally {
-                            setAllowManualSave(true);
-                          }
-                        }}
-                        className="bg-[#40B7BA] rounded-lg p-3 text-white font-bold"
-                      >
-                        Save Application
-                      </button>
-                    </div>
-                  </section>
-                )}
-
-                {/* Short Answer Questions */}
-                {registrationSection == 3 && (
-                  <section className="mt-12 md:mt-0 bg-white lg:w-3/5 md:w-3/4 w-full min-h-[35rem] mx-auto rounded-2xl md:py-10 py-6 px-8 mb-8 text-[#4C4950]">
-                    <h2 className="sm:text-2xl text-xl poppins-bold sm:mb-3 mb-1 mt-2">
-                      Short Answer Questions
-                    </h2>
-                    <div className="flex flex-col poppins-regular md:px-4">
-                      {shortAnswerQuestions.map((obj, idx) => (
-                        <DisplayQuestion key={idx} obj={obj} />
-                      ))}
                     </div>
                     <div className="flex justify-end mt-4">
                       <button

@@ -48,7 +48,7 @@ export default function AdminStatsPage() {
   return (
     <div className="flex flex-col flex-grow">
       <Head>
-        <title>HackUTD 2024 - Admin</title>
+        <title>NTHSHack 2025- Admin</title>
         <meta name="description" content="HackPortal's Admin Page" />
       </Head>
       <AdminHeader />
