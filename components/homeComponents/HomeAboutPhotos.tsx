@@ -91,7 +91,7 @@ const HomeAboutPhotos = () => {
         </div>
         <div className="w-[600px] order-1 lg:order-2 text-center lg:text-left text-[#F7CE79] text-stroke lg:ml-8">
           <p className="text-5xl font-bold stroke-rose-700">
-            <NumberTicker value={1000} />+ Hackers
+            <NumberTicker value={100} />+ Hackers
           </p>
 
           <p className="text-5xl font-bold">
@@ -99,11 +99,11 @@ const HomeAboutPhotos = () => {
           </p>
 
           <p className="text-5xl font-bold">
-            $<NumberTicker value={120000} /> in prizes
+            $<NumberTicker value={2500} /> in prizes
           </p>
 
           <p className="text-5xl font-bold">
-            <NumberTicker value={200} />+ projects
+            <NumberTicker value={50} />+ projects
           </p>
         </div>
       </div>

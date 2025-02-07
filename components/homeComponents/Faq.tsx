@@ -116,11 +116,11 @@ export default function FaqPage({ fetchedFaqs }: { fetchedFaqs: AnsweredQuestion
           <div className="bg-white mx-[8vw] p-10 rounded-lg flex justify-between font-fredoka">
             <div className="pt-3">
               <h1 className="text-3xl mb-4 font-bold text-[#54DDE8]">FAQ</h1>
-              <p>Can’t find what you’re looking for? Connect with our team at hello@hackutd.co</p>
+              <p>Can’t find what you’re looking for? Connect with our team at outreach@acmutd.co</p>
             </div>
             <div className="flex items-center">
               <Link
-                href="mailto:hello@hackutd.co"
+                href="mailto:outreach@acmutd.co"
                 className="bg-[#DFFEFF] text-[#40B7BA] p-3 rounded-2xl"
               >
                 Ask A Question!
