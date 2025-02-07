@@ -114,7 +114,7 @@ const HomeAboutText = () => {
         ref={titleRef}
         className="text-5xl font-bold mb-3 text-center relative font-jua z-10 text-[#F7CE79] text-stroke opacity-0"
       >
-        What is HackUTD?
+        About NTHS Hackathon
       </h1>
 
       <div className="relative w-full flex justify-center items-center z-10">
@@ -122,12 +122,14 @@ const HomeAboutText = () => {
           ref={explanationRef}
           className="text-xl text-center text-[#616161] max-w-2xl mb-16 font-fredoka relative z-10 px-6 md:px-0 opacity-0"
         >
-          HackUTD, the largest university hackathon in Texas, is a weekend-long event where students
-          build apps, hardware, and more. HackUTD provides a venue for self-expression and
-          creativity through technology. People with varying technical backgrounds from universities
-          all over the US come together, form teams around a problem or idea, and collaboratively
-          build a unique solution from scratch. Whether you&apos;re a frequent hackathon attendee or
-          just getting started, we&apos;d love to see what you can make!
+          The Association of Computing Machinery (ACM) at the University of Texas at Dallas will be
+          hosting the third iteration of our hackathon experience! This two day long event will be
+          an intense competition of self expression and creativity through technology, where
+          students will get the chance to showcase their web development skills. High school
+          students across North Texas with varying technical backgrounds will come together, form
+          teams, and build unique solutions from scratch. This beginner-friendly hackathon is an
+          extraordinary opportunity for you to win prizes, compete, and jumpstart your journey in
+          technology!
         </p>
 
         <div className="absolute inset-0 z-9999">
