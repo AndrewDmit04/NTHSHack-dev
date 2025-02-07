@@ -24,6 +24,7 @@ import { ParticlesContext } from '../components/Particles/ParticlesProvider';
 import { initFirebase } from '../lib/firebase-client';
 import { FCMProvider } from '../lib/service-worker/FCMContext';
 import { AuthProvider } from '../lib/user/AuthContext';
+import StarField from '@/components/homeComponents/StarField';
 
 initFirebase();
 
@@ -138,26 +139,28 @@ function PortalApp({ Component, pageProps }: AppProps) {
 
                 <div className="min-h-screen flex flex-col">
                   {duckBackgroundPathnames.has(router.pathname) && (
-                    <div className="fixed top-0 left-0 w-screen h-screen -z-10">
-                      <Image
+                    <div className="fixed top-0 left-0 w-screen h-screen -z-10 bg-black ">
+                      {/* <Image
                         className="w-screen h-screen object-cover"
                         alt="Pond Background"
                         src={PondBackgroundImage.src}
                         width={PondBackgroundImage.width}
                         height={PondBackgroundImage.height}
-                      />
+                      /> */}
+                      <StarField count={200} />
                     </div>
                   )}
 
                   {registerBackgroundPathnames.has(router.pathname) && (
-                    <div className="fixed top-0 left-0 w-screen h-screen -z-10">
-                      <Image
+                    <div className="fixed top-0 left-0 w-screen h-screen -z-10 bg-black ">
+                      {/* <Image
                         className="w-screen h-screen object-cover"
                         alt="Register background"
                         src={RegisterBackgroundImage.src}
                         width={RegisterBackgroundImage.width}
                         height={RegisterBackgroundImage.height}
-                      />
+                      /> */}
+                      <StarField count={200} />
                     </div>
                   )}
 
