@@ -687,55 +687,12 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                 {registrationSection == 5 && (
                   <section className="bg-white lg:w-3/5 md:w-3/4 w-full min-h-[35rem] mx-auto rounded-2xl md:py-10 py-6 px-8 mb-8 text-[#4C4950] relative">
                     <h2 className="sm:text-2xl text-xl poppins-bold sm:mb-3 mb-1 mt-2">
-                      Sponsor Info
+                      Personal Details
                     </h2>
                     <div className="flex flex-col poppins-regular md:px-4">
                       {sponsorInfoQuestions.map((obj, idx) => (
                         <DisplayQuestion key={idx} obj={obj} />
                       ))}
-                    </div>
-                    {/* Resume Upload */}
-                    <div className="mt-8 md:px-4 poppins-regular">
-                      <div className="flex items-center">
-                        Upload your resume{' '}
-                        <span className="text-gray-600 ml-2 text-[8px]">optional</span>
-                      </div>
-                      <br />
-                      <input
-                        onChange={(e) => handleResumeFileChange(e)}
-                        ref={resumeFileRef}
-                        name="resume"
-                        type="file"
-                        formEncType="multipart/form-data"
-                        accept=".pdf, .doc, .docx, image/png, image/jpeg, .txt, .tex, .rtf"
-                        className="hidden"
-                      />
-                      <div className="flex items-center gap-x-3 poppins-regular w-full border border-[#40B7BA] rounded-md">
-                        <button
-                          className="md:p-2 p-1 bg-[#40B7BA] text-white h-full rounded-l-md border-none"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            resumeFileRef.current?.click();
-                          }}
-                        >
-                          Upload new resume...
-                        </button>
-                        <p className="text-[#4C4950]">
-                          {resumeFile ? resumeFile.name : 'No file selected.'}
-                        </p>
-                      </div>
-                      <p className="poppins-regular text-xs text-[#40B7BA]">
-                        Accepted file types: .pdf, .doc, .docx, .png, .jpeg, .txt, .tex, .rtf
-                      </p>
-                      {partialProfile?.resume && (
-                        <div className="my-4 w-fit">
-                          <Link href={partialProfile.resume} target="_blank">
-                            <div className="bg-[#40B7BA] md:p-2 p-1 text-white rounded-lg">
-                              Click to view your current resume
-                            </div>
-                          </Link>
-                        </div>
-                      )}
                     </div>
                     <div className="flex justify-end my-4">
                       <button

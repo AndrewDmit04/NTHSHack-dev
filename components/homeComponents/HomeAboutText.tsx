@@ -133,7 +133,7 @@ const HomeAboutText = () => {
         </p>
 
         <div className="absolute inset-0 z-9999">
-          <img
+          {/* <img
             src="/assets/koi.gif"
             alt="Fish"
             className="absolute hidden md:block"
@@ -156,7 +156,7 @@ const HomeAboutText = () => {
               height: '10vw',
               ...fish2HoverStyle,
             }}
-          />
+          /> */}
         </div>
       </div>
     </div>
