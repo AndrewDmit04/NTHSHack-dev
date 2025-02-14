@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { config } from '../../hackportal.config';
 import styles from './HackCountdown.module.css';
 import gsap from 'gsap';
+import { motion } from 'framer-motion';
+import StarField from './StarField';
 
 const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -19,7 +21,7 @@ const Countdown = () => {
   // const isDesktopView = window.innerWidth >= 768;
   const isDesktopView = true;
 
-  const cloudHoverStyle = {
+  const moonHoverStyle = {
     animation: isDesktopView ? 'moveUpDown 2s infinite alternate' : 'none',
   };
 
@@ -114,30 +116,96 @@ const Countdown = () => {
   return (
     <div
       ref={countdownRef}
-      className="relative min-h-screen flex flex-col items-center justify-center font-jua"
-      style={{ position: 'relative', minHeight: '150vh' }}
+      className="relative min-h-screen flex flex-col items-center justify-center font-roboto"
+      style={{
+        background: '#000F27',
+        backgroundSize: '100% 100%',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative',
+        minHeight: '180vh',
+      }}
     >
-      <div className="relative flex justify-center items-center w-full" style={cloudHoverStyle}>
+      <div className="relative flex justify-center items-center w-full">
         <div
           className="relative w-full flex justify-center items-center"
           style={{ height: 'auto' }}
         >
-          <img
-            src="/assets/cloud.png"
-            alt="Cloud"
+          <StarField count={20} />
+          <motion.img
+            src="/assets/PurplePlanet.png"
+            alt="Planet"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+            style={{ transformOrigin: 'center' }}
             ref={cloudRef}
             className={`w-100 h-auto ${styles.cloud}`}
-            style={{ opacity: isDesktopView ? 0 : 1 }}
           />
+
+          <img
+            src="/assets/moon1.png"
+            alt="Moon 1"
+            className="absolute"
+            style={{
+              width: '150px',
+              height: '150px',
+              top: '-10%',
+              left: '60%',
+              transform: 'translateX(-50%)', // center horizontally
+              ...moonHoverStyle,
+            }}
+          />
+
+          <img
+            src="/assets/moon2.png"
+            alt="Moon 2"
+            className="absolute"
+            style={{
+              width: '50px',
+              height: '50px',
+              bottom: '20%',
+              left: '80%',
+              transform: 'translateX(-50%)',
+              ...moonHoverStyle,
+            }}
+          />
+
+          <img
+            src="/assets/moon3.png"
+            alt="Moon 3"
+            className="absolute"
+            style={{
+              width: '100px',
+              height: '100px',
+              bottom: '50%',
+              right: '90%',
+              transform: 'translateX(-50%)',
+              ...moonHoverStyle,
+            }}
+          />
+
+          <img
+            src="/assets/constellation.png"
+            alt="Constellation"
+            className="absolute"
+            style={{
+              width: '200px',
+              height: '200px',
+              bottom: '100%',
+              right: '75%',
+              transform: 'translateX(-50%)',
+            }}
+          />
+
           <div className="absolute flex flex-col items-center justify-center w-full h-full p-4 text-center">
             <h1
               ref={countdownTitleRef}
-              className="text-6xl md:text-6xl sm:text-md xs:text-small font-bold text-[#F7CE79] text-stroke countdown-title"
+              className="text-6xl md:text-6xl sm:text-md xs:text-small font-bold text-[#f79256] text-stroke countdown-title"
               style={{ opacity: isDesktopView ? 0 : 1 }}
             >
               COUNTDOWN
             </h1>
-            <div className="flex justify-center mt-2 space-x-2 text-3xl md:text-2xl sm:text-xl xs:text-lg font-poppins text-[#05149C]">
+            <div className="flex justify-center mt-2 space-x-2 text-3xl md:text-2xl sm:text-xl xs:text-lg font-inter font-slightbold text-[#05149C] ">
               {renderTimeBox(timeLeft.days, 'DAYS', 0)}
               {renderTimeBox(timeLeft.hours, 'HOURS', 1)}
               {renderTimeBox(timeLeft.minutes, 'MINUTES', 2)}
