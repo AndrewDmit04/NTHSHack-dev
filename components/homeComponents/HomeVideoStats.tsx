@@ -7,7 +7,7 @@ export default function HomeVideoStats() {
       <StarField count={100} />
       <div className="w-full flex justify-center mr-10">
         <iframe
-          className="border-0 rounded-lg"
+          className="border-0 rounded-lg  z-10"
           width="700"
           height="400"
           src="https://www.youtube.com/embed/Yf6X96oeNSs"
