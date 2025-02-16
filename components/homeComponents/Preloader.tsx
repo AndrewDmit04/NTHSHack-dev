@@ -52,9 +52,21 @@ function FloatingPaths({ position }: { position: number }) {
 
 export default function Preloader({ setIsLoaded }: { setIsLoaded: (loaded: boolean) => void }) {
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 5000);
-    return () => clearTimeout(timer);
-  }, [setIsLoaded]);
+    // Disable scrolling
+    document.body.style.overflow = 'hidden';
+
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+      // Enable scrolling when loaded
+      document.body.style.overflow = 'auto';
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+      // Ensure scrolling is re-enabled when component unmounts
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   return (
     <motion.div
