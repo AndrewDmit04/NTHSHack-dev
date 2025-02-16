@@ -6,7 +6,7 @@ export default function HomeFaq(props: { answeredQuestion: AnsweredQuestion[] })
   return (
     props.answeredQuestion.length != 0 && (
       <section
-        className={styles.container}
+        className="bg-gradient-to-b from-[#4bccd3] to-[#4fd4dd]"
         style={{
           background: 'linear-gradient(#4bccd3 40%, #4fd4dd)',
           position: 'relative',
@@ -30,35 +30,7 @@ export default function HomeFaq(props: { answeredQuestion: AnsweredQuestion[] })
         {/* > */}
         {/*   <Image src={corgi} alt="Corgi on boat" width={200} height={200} /> */}
         {/* </div> */}
-        <style jsx>{`
-          @keyframes bobbing {
-            0%,
-            100% {
-              transform: translateX(-50%) translateY(0);
-            }
-            50% {
-              transform: translateX(-50%) translateY(-10px);
-            }
-          }
-          @keyframes waveAnimation {
-            0%,
-            100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-20px);
-            }
-          }
-          .wave-container {
-            position: relative;
-            bottom: -20px;
-            margin-top: 10rem;
-            z-index: 2;
-          }
-          .wave-animation {
-            animation: waveAnimation 4s ease-in-out infinite;
-          }
-        `}</style>
+
         {/* placeholder text */}
         {/* <div id="schedule-section" ref={scheduleRef}> */}
         {/*   <h1 className="text-stroke text-6xl md:text-6xl sm:text-md xs:text-small font-bold text-[#F7CE79] font-jua text-center pb-10 pt-[14rem] uppercase"> */}
@@ -67,7 +39,7 @@ export default function HomeFaq(props: { answeredQuestion: AnsweredQuestion[] })
         {/* </div> */}
         <Faq fetchedFaqs={props.answeredQuestion}></Faq>
         {/* Wave2 with Vertical Animation */}
-        <div className="wave-container">
+        {/* <div className="wave-container">
           <div className="wave-animation">
             <Wave2
               className={styles.wave2}
@@ -77,7 +49,7 @@ export default function HomeFaq(props: { answeredQuestion: AnsweredQuestion[] })
               }}
             />
           </div>
-        </div>
+        </div> */}
       </section>
     )
   );

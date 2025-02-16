@@ -39,14 +39,16 @@ const CHALLENGE_TRACKS = [
 export default function HomeChallengesComponent(props: { challenges: Challenge[] }) {
   return (
     props.challenges.length !== 0 && (
-      <section className={`${styles.container} m-auto pb-[20rem] relative`}>
-        <Image
+      <section
+        className={` m-auto pb-[20rem] relative bg-gradient-to-b from-[#063074] to-[#B0D6F5] pt-48`}
+      >
+        {/* <Image
           src={middleWave.src}
           height={middleWave.height}
           width={middleWave.width}
           alt="middle_wave.png"
           className="absolute top-0 left-0 w-full h-full z-0"
-        />
+        /> */}
 
         <div className={styles.content}>
           <div

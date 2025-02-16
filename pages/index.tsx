@@ -69,13 +69,13 @@ export default function Home(props: {
         />
 
         {/* Themed ocean background of HackUTD */}
-        <Image
+        {/* <Image
           src={hackutdBg.src}
           width={hackutdBg.width}
           height={hackutdBg.height}
           alt="hackutd-bg.png"
           className="absolute top-0 left-0 w-full h-full object-cover"
-        />
+        /> */}
 
         <div style={{ position: 'relative', zIndex: 1, overflowX: 'hidden' }}>
           <div
@@ -89,25 +89,25 @@ export default function Home(props: {
             }}
           >
             {/* Bottom layer background */}
-            <Image
+            {/* <Image
               src={topBg.src}
               width={topBg.width}
               height={topBg.height}
               alt="topBg.png"
               className="absolute z-0 top-0 left-0 w-full h-full object-cover"
-            />
+            /> */}
 
             {/* Top layer background */}
-            <Image
+            {/* <Image
               src={countdownClouds.src}
               width={countdownClouds.width}
               height={countdownClouds.height}
               alt="countdown_clouds.png"
               className="absolute z-[1] top-0 left-0 w-full h-full object-cover"
-            />
+            /> */}
 
             <div className="relative z-[2]">
-              <Wave />
+              {/* <Wave /> */}
               <HomeAboutPhotos />
               <HomeVideoStats />
               <HackCountdown />

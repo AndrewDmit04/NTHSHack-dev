@@ -3,6 +3,7 @@ import birds from '../../public/assets/birds.png';
 import frogBalloonMoving from '../../public/assets/frog-balloon-moving.gif';
 import NumberTicker from '../NumberTicker';
 import Image from 'next/image';
+import StarField from './StarField';
 
 const HomeAboutPhotos = () => {
   const [windowScroll, setWindowScroll] = useState(0);
@@ -36,61 +37,13 @@ const HomeAboutPhotos = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center font-jua">
-      <style>
-        {`
-          @keyframes balloonBob {
-            0% {
-              transform: translateY(0);
-            }
-            100% {
-              transform: translateY(-30px); /* Increased bobbing effect */
-            }
-          }
-
-          .cloud-hover {
-            animation: float 6s ease-in-out infinite;
-          }
-
-          @keyframes float {
-            0% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-            100% {
-              transform: translateY(0px);
-            }
-          }
-        `}
-      </style>
+    <div className="relative flex flex-col items-center justify-center font-jua bg-black ">
+      <StarField count={200} />
 
       {/* About Section */}
-      <div
-        className="relative flex flex-col-reverse lg:flex-row items-center mb-5 font-fredoka z-10 space-y-8 lg:space-y-0 lg:space-x-15 mt-10"
-        style={{
-          backgroundImage: `url(${birds.src})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          minHeight: '75vh',
-        }}
-      >
-        <div
-          className="order-2 lg:order-1 flex justify-center items-center z-20 lg:justify-end lg:mr-8"
-          style={balloonHoverStyle}
-        >
-          <Image
-            src={frogBalloonMoving.src}
-            height={frogBalloonMoving.height}
-            width={frogBalloonMoving.width}
-            alt="frog-balloon-moving.gif"
-            className="w-80 h-auto object-cover"
-          />
-        </div>
-        <div className="w-[600px] order-1 lg:order-2 text-center lg:text-left text-[#F7CE79] text-stroke lg:ml-8">
-          <p className="text-5xl font-bold stroke-rose-700">
+      <div className="relative flex flex-col-reverse lg:flex-row items-center mb-5 font-fredoka z-10 space-y-8 lg:space-y-0 lg:space-x-15 mt-44 ">
+        <div className="w-[600px] order-1 lg:order-2 text-center  text-[#F7CE79] text-stroke lg:ml-8 ">
+          <p className="text-5xl font-bold stroke-rose-700 text-centers">
             <NumberTicker value={100} />+ Hackers
           </p>
 
@@ -108,7 +61,7 @@ const HomeAboutPhotos = () => {
         </div>
       </div>
       {/* Left Cloud */}
-      <div
+      {/* <div
         className="absolute top-[70%] lg:top-[15%] left-[5%] lg:left-[30%] transform -translate-x-[30%] z-50"
         style={{ ...cloudStyle, ...cloudLeftScroll }}
       >
@@ -117,10 +70,10 @@ const HomeAboutPhotos = () => {
           alt="Cloud Background"
           className="w-[40rem] md:w-[45rem] lg:w-[50rem] cloud-hover"
         />
-      </div>
+      </div> */}
 
       {/* Right Cloud */}
-      <div
+      {/* <div
         className="absolute top-[70%] lg:top-[15%] right-[5%] lg:right-[30%] transform translate-x-[30%] z-50"
         style={{ ...cloudStyle, ...cloudRightScroll }}
       >
@@ -129,7 +82,7 @@ const HomeAboutPhotos = () => {
           alt="Cloud Background"
           className="w-[40rem] md:w-[45rem] lg:w-[50rem] cloud-hover"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

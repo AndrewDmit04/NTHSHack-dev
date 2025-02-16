@@ -116,22 +116,14 @@ const Countdown = () => {
   return (
     <div
       ref={countdownRef}
-      className="relative min-h-screen flex flex-col items-center justify-center font-roboto"
-      style={{
-        background: '#000F27',
-        backgroundSize: '100% 100%',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative',
-        minHeight: '180vh',
-      }}
+      className="relative min-h-screen flex flex-col items-center justify-center font-roboto bg-[#000F27]"
     >
       <div className="relative flex justify-center items-center w-full">
         <div
           className="relative w-full flex justify-center items-center"
           style={{ height: 'auto' }}
         >
-          <StarField count={20} />
+          <StarField count={200} />
           <motion.img
             src="/assets/PurplePlanet.png"
             alt="Planet"
