@@ -486,7 +486,7 @@ export const hackPortalConfig: HackPortalConfig = {
             initialValue: [],
             options: [
               {
-                title: 'I understand that this is an Application and does not guarantee admission.',
+                title: 'I understand that this is an Application',
                 value: 'Yes',
               },
             ],
