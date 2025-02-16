@@ -56,8 +56,8 @@ const Countdown = () => {
     const handleIntersection = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power3.out' } });
-          tl.to(cloudRef.current, { x: 0, opacity: 1, duration: 1.5 })
+          const tl = gsap.timeline({ defaults: { duration: 0.5, ease: 'power3.out' } });
+          tl.to(cloudRef.current, { x: 0, opacity: 1, duration: 0.5 })
             .fromTo(
               countdownTitleRef.current,
               { opacity: 0, y: -50 },
