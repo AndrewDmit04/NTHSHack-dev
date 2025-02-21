@@ -24,35 +24,38 @@ export default function HomeFooter() {
   };
 
   return (
-    <section className="md:text-base text-xs bg-[#8B4513] text-white py-10">
+    <section className="md:text-base text-xs text-white bg-[#654321] py-10">
       <div className="container mx-auto flex flex-wrap justify-between items-start">
         {/* HackUTD Section */}
         <div className="flex-1 p-4">
-          <h1 className="font-bold text-2xl">HackUTD</h1>
+          <h1 className="font-bold text-2xl">ACM UTD</h1>
           <p style={{ whiteSpace: 'nowrap', wordBreak: 'keep-all', textUnderlineOffset: '2px' }}>
             Contact Us
           </p>
-
           {/* Social Media Links */}
           <div className="flex space-x-4 mt-4">
-            <a href="https://instagram.com/hackutd" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/acmutd_outreach/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src="/assets/instagram.png" alt="Instagram" className="w-7 h-7" />
             </a>
             <a
-              href="https://linkedin.com/company/hackutd"
+              href="https://www.linkedin.com/company/acmutd"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img src="/assets/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
             </a>
-            <a href="mailto:hello@hackutd.co">
+            <a href="mailto:outreach@acmutd.co">
               <img src="/assets/gmail.png" alt="Email" className="w-7 h-7" />
             </a>
           </div>
         </div>
 
         {/* Other Hackathons Section */}
-        <div className="flex-1 p-4">
+        {/* <div className="flex-1 p-4">
           <h1 className="font-bold text-2xl">Other Hackathons</h1>
           <p
             className="underline mt-1 font-medium"
@@ -102,7 +105,7 @@ export default function HomeFooter() {
               RowdyHacks
             </Link>
           </p>
-        </div>
+        </div> */}
 
         {/* Learn More Section */}
         <div className="flex-1 p-4">

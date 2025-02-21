@@ -21,10 +21,6 @@ const Countdown = () => {
   // const isDesktopView = window.innerWidth >= 768;
   const isDesktopView = true;
 
-  const moonHoverStyle = {
-    animation: isDesktopView ? 'moveUpDown 2s infinite alternate' : 'none',
-  };
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       const now = new Date();
@@ -141,10 +137,10 @@ const Countdown = () => {
             style={{
               width: '150px',
               height: '150px',
-              top: '-10%',
-              left: '60%',
+              top: '10%',
+              left: '80%',
               transform: 'translateX(-50%)', // center horizontally
-              ...moonHoverStyle,
+              animation: 'moveUpDown 2s infinite alternate ease-in-out',
             }}
           />
 
@@ -153,12 +149,12 @@ const Countdown = () => {
             alt="Moon 2"
             className="absolute"
             style={{
-              width: '50px',
-              height: '50px',
+              width: '60px',
+              height: '60px',
               bottom: '20%',
               left: '80%',
               transform: 'translateX(-50%)',
-              ...moonHoverStyle,
+              animation: 'moveUpDown 2s infinite alternate ease-in-out',
             }}
           />
 
@@ -170,9 +166,9 @@ const Countdown = () => {
               width: '100px',
               height: '100px',
               bottom: '50%',
-              right: '90%',
+              right: '85%',
               transform: 'translateX(-50%)',
-              ...moonHoverStyle,
+              animation: 'moveUpDown 2s infinite alternate ease-in-out',
             }}
           />
 

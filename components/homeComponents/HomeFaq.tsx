@@ -1,6 +1,8 @@
 import Wave2 from '../assets/Wave2';
 import Faq from './Faq';
 import styles from './HomeFaq.module.css';
+import { Images } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function HomeFaq(props: { answeredQuestion: AnsweredQuestion[] }) {
   return (
@@ -50,6 +52,43 @@ export default function HomeFaq(props: { answeredQuestion: AnsweredQuestion[] })
             />
           </div>
         </div> */}
+
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '-2%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 1,
+          }}
+        >
+          <motion.img
+            src="/assets/shuttle.png"
+            alt="shuttle"
+            style={{
+              left: '50%',
+              transform: 'translateX(-50%)',
+            }}
+            animate={{
+              y: [0, -0.5, 0, 0.5, 0],
+              x: [0, 0.5, -0.5, 0],
+              // rotate: [0, -1, 1, -0.5, 0.5, 0]
+            }}
+            transition={{ dutation: 2, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </div>
+
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '0',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '100%',
+          }}
+        >
+          <img src="/assets/grass1.png" alt="grass" className="w-full h-auto" />
+        </div>
       </section>
     )
   );
