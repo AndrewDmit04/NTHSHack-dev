@@ -24,7 +24,20 @@ export default function HomeFooter() {
   };
 
   return (
-    <section className="md:text-base text-xs bg-[#8B4513] text-white py-10">
+    <section className="relative md:text-base text-xs bg-[#6d3e1c] text-white">
+      <div className="bg-[#09B1EC] h-[800px] relative">
+        <img src="/assets/cloud.png" className="top-0 left-1/2 absolute w-96"></img>
+        <img src="/assets/cloud.png" className="top-9 left-[500px] absolute w-96"></img>
+        <img src="/assets/cloud.png" className="top-0 absolute w-96"></img>
+        <img src="/assets/cloud.png" className="top-8 right-0 absolute w-96"></img>
+        <img src="/assets/tree.webp" className="bottom-0 right-12 absolute w-72"></img>
+        <img src="/assets/tree.webp" className="bottom-0 left-12 absolute w-72"></img>
+        <img
+          src="/assets/tree.webp"
+          className="bottom-0 left-1/2 -translate-x-1/2 absolute w-72"
+        ></img>
+      </div>
+      <div className="w-full h-20 bg-green-500"></div>
       <div className="container mx-auto flex flex-wrap justify-between items-start">
         {/* HackUTD Section */}
         <div className="flex-1 p-4">

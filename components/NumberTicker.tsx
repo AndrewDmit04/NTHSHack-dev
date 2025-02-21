@@ -32,5 +32,10 @@ export default function NumberTicker({ value, delay = 0 }: NumberTickerProps) {
       }),
     [springValue],
   );
-  return <span className="inline-block tabular-nums text-[#F7CE79] tracking-wider" ref={ref} />;
+  return (
+    <span
+      className="inline-block tabular-nums text-transparent bg-clip-text bg-gradient-to-r from-red-200 via-sky-300 to-blue-500 tracking-wider"
+      ref={ref}
+    />
+  );
 }

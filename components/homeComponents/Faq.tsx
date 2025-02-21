@@ -65,7 +65,7 @@ export default function FaqPage({ fetchedFaqs }: { fetchedFaqs: AnsweredQuestion
         <title>NTHSHack 2025</title>
         <meta name="description" content="HackPortal's Frequently Asked Questions" />
       </Head>
-      <div className="top-6 bg-gradient-to-b from-[#B0D6F5] to-[#09B1EC] pb-[800px]">
+      <div className="top-6 bg-gradient-to-b from-[#B0D6F5] to-[#09B1EC]">
         {/* <div className="flex flex-row justify-between items-center py-1"> */}
         {/*   <div> */}
         {/*     <Image */}

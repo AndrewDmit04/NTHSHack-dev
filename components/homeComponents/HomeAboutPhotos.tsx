@@ -42,12 +42,12 @@ const HomeAboutPhotos = () => {
 
       {/* About Section */}
       <div className="relative flex flex-col-reverse lg:flex-row items-center mb-5 font-fredoka z-10 space-y-8 lg:space-y-0 lg:space-x-15 mt-44 ">
-        <div className="w-[600px] order-1 lg:order-2 text-center  text-[#F7CE79] text-stroke lg:ml-8 ">
-          <p className="text-5xl font-bold stroke-rose-700 text-centers">
+        <div className="w-[600px] order-1 lg:order-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-300 to-red-200 lg:ml-8 ">
+          <p className="text-5xl font-bold stroke-rose-700 text-centers ">
             <NumberTicker value={100} />+ Hackers
           </p>
 
-          <p className="text-5xl font-bold">
+          <p className="text-5xl font-bold ">
             <NumberTicker value={24} /> hours
           </p>
 
@@ -60,6 +60,7 @@ const HomeAboutPhotos = () => {
           </p>
         </div>
       </div>
+
       {/* Left Cloud */}
       {/* <div
         className="absolute top-[70%] lg:top-[15%] left-[5%] lg:left-[30%] transform -translate-x-[30%] z-50"
