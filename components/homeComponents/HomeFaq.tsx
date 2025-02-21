@@ -72,7 +72,6 @@ export default function HomeFaq(props: { answeredQuestion: AnsweredQuestion[] })
             animate={{
               y: [0, -0.5, 0, 0.5, 0],
               x: [0, 0.5, -0.5, 0],
-              // rotate: [0, -1, 1, -0.5, 0.5, 0]
             }}
             transition={{ dutation: 2, repeat: Infinity, ease: 'easeInOut' }}
           />

@@ -24,7 +24,7 @@ export default function HomeFooter() {
   };
 
   return (
-    <section className="md:text-base text-xs text-white bg-[#654321] py-10">
+    <section className="md:text-base text-xs text-white bg-[#3F3027] py-10">
       <div className="container mx-auto flex flex-wrap justify-between items-start">
         {/* HackUTD Section */}
         <div className="flex-1 p-4">
@@ -51,6 +51,20 @@ export default function HomeFooter() {
             <a href="mailto:outreach@acmutd.co">
               <img src="/assets/gmail.png" alt="Email" className="w-7 h-7" />
             </a>
+          </div>
+          <div
+            className="mt-4"
+            style={{ whiteSpace: 'nowrap', wordBreak: 'keep-all', textUnderlineOffset: '2px' }}
+          >
+            Check out ACM UTD’s{' '}
+            <span
+              className="font-semibold cursor-pointer underline"
+              style={{ textUnderlineOffset: '2px' }}
+            >
+              <Link href="https://www.acmutd.co" target="_blank">
+                website
+              </Link>
+            </span>
           </div>
         </div>
 
@@ -180,7 +194,7 @@ export default function HomeFooter() {
               onClick={async () => {
                 await handleSubmitEmail(userEmail);
               }}
-              className="mb-10 md:mb-0 w-full rounded-lg text-white px-6 py-2 bg-complementary"
+              className="mb-10 md:mb-0 w-full rounded-lg text-white px-6 py-2 bg-[#84b03f]"
             >
               Subscribe
             </button>
