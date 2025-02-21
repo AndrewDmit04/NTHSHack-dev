@@ -113,9 +113,9 @@ const HomeAboutText = () => {
       <StarField count={50} />
       <h1
         ref={titleRef}
-        className="text-5xl font-bold mb-3 text-center relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-400 to-indigo-700 animate-twinkle opacity-0"
+        className="text-5xl font-bold mb-3 text-center relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-300 to-red-200 animate-twinkle opacity-0"
         style={{
-          textShadow: '0 0 20px rgba(147, 51, 234, 0.5)',
+          textShadow: '0 0 20px rgba(100, 100, 255, 0.5)',
         }}
       >
         About NTHS Hackathon

@@ -36,6 +36,7 @@ const PRIZES = [
 
 export default function HomeChallengesComponent() {
   return (
+
     <section
       className={`m-auto pb-[20rem] relative bg-gradient-to-b from-[#063074] to-[#B0D6F5] pt-48`}
     >
@@ -63,6 +64,7 @@ export default function HomeChallengesComponent() {
               <p className="text-center">{prize.description}</p>
             </div>
           ))}
+
         </div>
       </div>
     </section>

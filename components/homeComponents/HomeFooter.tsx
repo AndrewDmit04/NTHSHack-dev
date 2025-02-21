@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { RequestHelper } from '@/lib/request-helper';
+import { motion } from 'framer-motion';
 
 export default function HomeFooter() {
   const [userEmail, setUserEmail] = useState<string>('');
@@ -24,7 +25,76 @@ export default function HomeFooter() {
   };
 
   return (
-    <section className="md:text-base text-xs bg-[#8B4513] text-white py-10">
+    <section className="relative md:text-base text-xs bg-[#6d3e1c] text-white">
+      <div className="bg-[#09B1EC] h-[800px] relative">
+        {/* First Cloud */}
+        <motion.img
+          src="/assets/cloud.png"
+          alt="cloud"
+          className="top-0 absolute w-96"
+          initial={{ x: '200vw' }} // Start from the left side
+          animate={{ x: '-100%' }} // Move to the right side
+          transition={{
+            duration: 20, // Duration of the animation
+            repeat: Infinity, // Loop the animation infinitely
+            repeatType: 'loop', // Loop animation
+            ease: 'linear', // Linear transition for constant speed
+          }}
+        />
+
+        {/* Second Cloud */}
+        <motion.img
+          src="/assets/cloud.png"
+          alt="cloud"
+          className="top-9 absolute w-96"
+          initial={{ x: '-100%' }}
+          animate={{ x: '100vw' }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            repeatType: 'loop',
+            ease: 'linear',
+          }}
+        />
+
+        {/* Third Cloud */}
+        <motion.img
+          src="/assets/cloud.png"
+          alt="cloud"
+          className="top-0 absolute w-96"
+          initial={{ x: '-100%' }}
+          animate={{ x: '100vw' }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            repeatType: 'loop',
+            ease: 'linear',
+          }}
+        />
+
+        {/* Fourth Cloud */}
+        <motion.img
+          src="/assets/cloud.png"
+          alt="cloud"
+          className="top-8 absolute w-96"
+          initial={{ x: '-100%' }}
+          animate={{ x: '100vw' }}
+          transition={{
+            duration: 28,
+            repeat: Infinity,
+            repeatType: 'loop',
+            ease: 'linear',
+          }}
+        />
+
+        <img src="/assets/tree.webp" className="bottom-0 right-12 absolute w-72"></img>
+        <img src="/assets/tree.webp" className="bottom-0 left-12 absolute w-72"></img>
+        <img
+          src="/assets/tree.webp"
+          className="bottom-0 left-1/2 -translate-x-1/2 absolute w-72"
+        ></img>
+      </div>
+      <div className="w-full h-20 bg-green-500"></div>
       <div className="container mx-auto flex flex-wrap justify-between items-start">
         {/* HackUTD Section */}
         <div className="flex-1 p-4">
