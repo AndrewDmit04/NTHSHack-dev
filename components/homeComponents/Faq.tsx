@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { SectionReferenceContext } from '@/lib/context/section';
 import Link from 'next/link';
 import gsap from 'gsap';
+import { motion } from 'framer-motion';
 
 /**
  * The FAQ page.
@@ -91,6 +92,57 @@ export default function FaqPage({ fetchedFaqs }: { fetchedFaqs: AnsweredQuestion
         {/*     style={fish3HoverStyle} */}
         {/*   /> */}
         {/* </div> */}
+        <div className="w-full h-[300px] relative overflow-hidden">
+          <motion.div
+            className="absolute top-1/2 flex items-center"
+            initial={{ x: '-100%' }}
+            animate={{ x: '100vw' }}
+            transition={{
+              x: {
+                duration: 8,
+                repeat: Infinity,
+                repeatType: 'loop',
+                ease: 'linear',
+              },
+            }}
+          >
+            {/* Banner */}
+            <motion.div
+              className="absolute right-36 w-48 h-12 bg-white border border-gray-300 rounded flex items-center justify-center text-xl font-bold text-gray-800"
+              animate={{
+                rotate: [-2, 2, -2],
+              }}
+              transition={{
+                rotate: {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  ease: 'easeInOut',
+                },
+              }}
+            >
+              NTHS HACK
+            </motion.div>
+
+            {/* Airplane */}
+            <motion.img
+              src="/assets/airplane1.png"
+              alt="airplane"
+              className="w-36 relative"
+              animate={{
+                rotate: [0, -1, 1, -1, 1, 0],
+              }}
+              transition={{
+                rotate: {
+                  duration: 0.6,
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  ease: 'easeInOut',
+                },
+              }}
+            />
+          </motion.div>
+        </div>
         <div className="pt-[8rem]">
           <div className="bg-white mx-[8vw] p-10 rounded-lg flex justify-between font-fredoka">
             <div className="pt-3">
