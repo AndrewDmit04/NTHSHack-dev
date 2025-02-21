@@ -1,79 +1,70 @@
 import Image from 'next/image';
-import middleWave from 'public/assets/middle_wave.png';
-import Track1Image from '../../public/assets/track_1.png';
-import Track2Image from '../../public/assets/track_2.png';
-import Track3Image from '../../public/assets/track_3.png';
-import GrandPrize from '../../public/assets/mac.png';
-import HomeChallengesCard from './HomeChallengeCard';
-
 import styles from './HomeChallenges.module.css';
-import HomeChallengeTrackCard from './HomeChallengeTrackCard';
 
-const CHALLENGE_TRACKS = [
+const PRIZES = [
   {
-    title: 'Mascot Prize',
-    subtitle: 'Mascot Prize',
-    description: 'Macbook Air',
-    imgSrc: GrandPrize.src,
+    title: 'General 1st place',
+    description: '3D printer',
+    imgSrc: '/assets/3D_printer.png',
   },
   {
-    title: 'First Place Software',
-    subtitle: '1st place software',
-    description: 'BenQ Monitor',
-    imgSrc: Track1Image.src,
+    title: 'General 2nd place',
+    description: 'LG Monitor',
+    imgSrc: '/assets/LG_Monitor.png',
   },
   {
-    title: 'Second Place Software',
-    subtitle: '2nd place software',
-    description: 'Oculus 3S',
-    imgSrc: Track2Image.src,
+    title: 'General 3rd place',
+    description: 'Mechanical Keyboard',
+    imgSrc: '/assets/keyboard.png',
   },
   {
-    title: 'Third Place Software',
-    subtitle: '3rd place software',
-    description: 'Ninja Creami',
-    imgSrc: Track3Image.src,
+    title: 'Hardware',
+    description: 'Amazon Alexa',
+    imgSrc: '/assets/alexa.png',
+  },
+  {
+    title: 'Tech Titans',
+    description: 'Mini Projector',
+    imgSrc: '/assets/projector.png',
+  },
+  {
+    title: 'Beginner',
+    description: 'Doordash Gift Card - $50',
+    imgSrc: '/assets/doordash.png',
   },
 ];
 
-export default function HomeChallengesComponent(props: { challenges: Challenge[] }) {
+export default function HomeChallengesComponent() {
   return (
-    props.challenges.length !== 0 && (
-      <section
-        className={` m-auto pb-[20rem] relative bg-gradient-to-b from-[#063074] to-[#B0D6F5] pt-48`}
-      >
-        {/* <Image
-          src={middleWave.src}
-          height={middleWave.height}
-          width={middleWave.width}
-          alt="middle_wave.png"
-          className="absolute top-0 left-0 w-full h-full z-0"
-        /> */}
-
-        <div className={styles.content}>
-          <div
-            style={{ textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
-            className="font-montserrat font-bold md:text-4xl text-2xl text-center text-white"
-          >
-            Challenge Tracks
-          </div>
-          <div
-            style={{ textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
-            className="text-center text-5xl font-bold text-[#F7CE79] p-4 font-fredoka uppercase"
-          >
-            Choose your track to get started
-          </div>
-
-          {/* Challenge Tracks */}
-
-          {/* TODO: enable this after get challenge data */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:p-10 items-center gap-x-6 gap-y-6 mt-6 mx-auto">
-            {props.challenges.map((challenge, idx) => (
-              <HomeChallengesCard key={idx} challenge={challenge} blockType={idx % 2} />
-            ))}
-          </div>
+    <section
+      className={`m-auto pb-[20rem] relative bg-gradient-to-b from-[#063074] to-[#B0D6F5] pt-48`}
+    >
+      <div className={styles.content}>
+        <div className="font-roboto font-bold md:text-3xl text-xl text-center text-white">
+          Challenge Prizes
         </div>
-      </section>
-    )
+        <div
+          style={{ textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
+          className="text-center text-4xl font-bold text-[#f79256] p-2 font-roboto uppercase relative"
+        >
+          Choose your track to get started
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-4 mt-6 mx-auto">
+          {' '}
+          {/* Adjusted gap-x for horizontal spacing */}
+          {PRIZES.map((prize, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow-md w-96 mx-auto">
+              <img
+                src={prize.imgSrc}
+                alt={prize.title}
+                className="mx-auto w-36 h-36 object-contain" // Set uniform width and height
+              />
+              <h3 className="font-bold text-center">{prize.title}</h3>
+              <p className="text-center">{prize.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
