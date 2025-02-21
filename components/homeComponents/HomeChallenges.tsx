@@ -36,7 +36,6 @@ const PRIZES = [
 
 export default function HomeChallengesComponent() {
   return (
-
     <section
       className={`m-auto pb-[20rem] relative bg-gradient-to-b from-[#063074] to-[#B0D6F5] pt-48`}
     >
@@ -46,7 +45,7 @@ export default function HomeChallengesComponent() {
         </div>
         <div
           style={{ textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
-          className="text-center text-4xl font-bold text-[#f79256] p-2 font-roboto uppercase relative"
+          className="text-center text-4xl font-bold text-cyan-500 p-2 font-roboto uppercase relative"
         >
           Choose your track to get started
         </div>
@@ -64,7 +63,6 @@ export default function HomeChallengesComponent() {
               <p className="text-center">{prize.description}</p>
             </div>
           ))}
-
         </div>
       </div>
     </section>

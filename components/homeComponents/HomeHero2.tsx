@@ -10,39 +10,60 @@ import StarField from './StarField';
 
 export default function SpaceThemedHero() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const words = 'HTHS Hack Blast Off'.split(' ');
+  const words = 'NTHS Hack Blast Off'.split(' ');
 
   const controls = useAnimation();
   const controls1 = useAnimation();
+  const isMountedRef = useRef(false);
 
   useEffect(() => {
-    const radius = 350; // Radius of the circles in pixels
-    const duration = 10; // Duration for a full circle in seconds
-    let angle = 0; // Base angle
-    const angleOffset = Math.PI; // 180 degrees offset for opposite direction
+    isMountedRef.current = true; // Mark as mounted
+    const radius = 350;
+    const duration = 10;
+    let angle = 0;
+    const angleOffset = Math.PI;
+    let animationFrameId;
 
-    const animate = () => {
-      // Animate first object (clockwise)
-      controls.start({
-        opacity: 1,
-        x: radius * Math.cos(angle),
-        y: radius * Math.sin(angle),
-        transition: { duration: 0.01, ease: 'linear' },
-      });
+    const animate = async () => {
+      if (!isMountedRef.current) return;
 
-      // Animate second object (counterclockwise, offset by π)
-      controls1.start({
-        opacity: 1,
-        x: radius * Math.cos(angle + angleOffset),
-        y: radius * Math.sin(angle + angleOffset),
-        transition: { duration: 0.01, ease: 'linear' },
-      });
+      try {
+        // Using Promise.all to handle both animations concurrently
+        await Promise.all([
+          controls.start({
+            opacity: 1,
+            x: radius * Math.cos(angle),
+            y: radius * Math.sin(angle),
+            transition: { duration: 0.01, ease: 'linear' },
+          }),
+          controls1.start({
+            opacity: 1,
+            x: radius * Math.cos(angle + angleOffset),
+            y: radius * Math.sin(angle + angleOffset),
+            transition: { duration: 0.01, ease: 'linear' },
+          }),
+        ]);
 
-      angle += (2 * Math.PI) / (duration * 100); // Increment angle for smoothness
-      requestAnimationFrame(animate);
+        angle += (2 * Math.PI) / (duration * 100);
+        animationFrameId = requestAnimationFrame(animate);
+      } catch (error) {
+        // Handle any animation errors
+        console.error('Animation error:', error);
+      }
     };
 
-    animate(); // Start the animation loop
+    // Small delay to ensure component is mounted
+    const timeoutId = setTimeout(() => {
+      if (isMountedRef.current) {
+        animate();
+      }
+    }, 0);
+
+    return () => {
+      isMountedRef.current = false;
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(timeoutId);
+    };
   }, [controls, controls1]);
 
   return (
@@ -66,7 +87,7 @@ export default function SpaceThemedHero() {
       <motion.div
         animate={controls}
         initial={{ opacity: 0 }}
-        className="max-w-4xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="max-w-4xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-0 "
       >
         <img src="/assets/astroid.png" alt="astroid" className="w-20 h-20" />
       </motion.div>
@@ -74,7 +95,7 @@ export default function SpaceThemedHero() {
       <motion.div
         animate={controls1}
         initial={{ opacity: 0 }}
-        className="max-w-4xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="max-w-4xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-0"
       >
         <img src="/assets/astroid.png" alt="astroid" className="w-20 h-20" />
       </motion.div>

@@ -95,8 +95,8 @@ export default function FaqPage({ fetchedFaqs }: { fetchedFaqs: AnsweredQuestion
         <div className="w-full h-[300px] relative overflow-hidden">
           <motion.div
             className="absolute top-1/2 flex items-center"
-            initial={{ x: '-100%' }}
-            animate={{ x: '100vw' }}
+            initial={{ x: '-200%' }}
+            animate={{ x: '120vw' }}
             transition={{
               x: {
                 duration: 8,
