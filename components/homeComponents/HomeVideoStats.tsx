@@ -1,66 +1,85 @@
 import { stats } from '../../lib/data';
 import StarField from './StarField';
+import { motion } from 'framer-motion';
 
 export default function HomeVideoStats() {
   return (
-    <section className="z-0 relative py-[3rem] bg-gradient-to-r from-black to-blue-950 h-screen w-full">
+    <section className="z-0 relative py-[200px] bg-gradient-to-b from-black to-[#000F27] h-screen w-full">
       {/* Video Section */}
       <StarField count={100} />
-      <div className="w-full flex justify-center mr-10 translate-x-[-130px] translate-y-10 ">
-        <style jsx>
-          {`
-            @keyframes float {
-              0% {
-                transform: translateY(0);
-              }
-              50% {
-                transform: translateY(-20px);
-              }
-              100% {
-                transform: translateY(0);
-              }
-            }
-            @keyframes floatDiagonal {
-              0% {
-                transform: translate(0, 0);
-              }
-              50% {
-                transform: translate(15px, -15px);
-              }
-              100% {
-                transform: translate(0, 0);
-              }
-            }
 
-            .animate-float-diagonal {
-              animation: floatDiagonal 4s ease-in-out infinite;
-            }
+      {/* Video container */}
+      <motion.div
+        className="relative z-10 mx-auto max-w-4xl pt-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="relative aspect-video">
+          <div className="absolute inset-0 rounded-lg bg-gray-800">
+            <div className="flex items-center justify-center h-full text-gray-400">
+              <iframe
+                className="border-0 rounded-lg"
+                width="700"
+                height="400"
+                src="https://www.youtube.com/embed/Yf6X96oeNSs"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
-            .animate-float {
-              animation: float 3s ease-in-out infinite;
-            }
-          `}
-        </style>
-        <img src="/assets/Moon.png" className="absolute bottom-0 right-5 w-80 h-80" />
-        <img
-          src="/assets/Astronaut.png"
-          className="absolute top-2 right-20 w-30 h-40 animate-float"
+      {/* Astronaut */}
+      <motion.div
+        className="absolute top-2 right-20"
+        animate={{ y: [-20, 20, -20] }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      >
+        <motion.img
+          src="./assets/Astronaut.png"
+          alt="Astronaut"
+          className="w-30 h-40 object-contain"
+          animate={{ rotate: [-5, 5, -5] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
         />
-        <img
+      </motion.div>
+
+      {/* Space Station */}
+      <motion.div
+        className="absolute bottom-10 left-40"
+        animate={{
+          x: [0, 20, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      >
+        <motion.img
           src="/assets/spaceStation.png"
-          className="absolute bottom-10 left-40 w-50 h-50 animate-float-diagonal"
+          alt="Space Station"
+          className="w-50 h-50 object-contain"
+          animate={{ rotate: [0, 5, 0] }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
         />
-
-        <iframe
-          className="border-0 rounded-lg"
-          width="700"
-          height="400"
-          src="https://www.youtube.com/embed/Yf6X96oeNSs"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
+      </motion.div>
 
       {/* Stats Section */}
       {/* <div className="flex flex-col justify-center items-center">
