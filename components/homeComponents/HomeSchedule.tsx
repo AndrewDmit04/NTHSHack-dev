@@ -1,4 +1,3 @@
-import middleWave from 'public/assets/middle_wave.png';
 import { SectionReferenceContext } from '@/lib/context/section';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Image from 'next/image';
@@ -7,10 +6,8 @@ import BoulderRight from 'public/assets/boulderRight.png';
 import * as React from 'react';
 import { useState } from 'react';
 import corgiOnBoat from '../../public/assets/corgi_on_boat.png';
-import ducks from '../../public/assets/ducks-moving.gif';
 import topLilypad from '../../public/assets/top_lilypads.png';
 import styles from './HomeSchedule.module.css';
-import HomeSpeakers from './HomeSpeakers2';
 
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { ChevronUpIcon } from '@heroicons/react/solid';
@@ -18,16 +15,16 @@ import StarField from './StarField';
 
 const eventColors = {
   All: 'border-gray-500 text-gray-500 bg-white',
-  Required: 'border-[#EF6C8B] text-[#EF6C8B] bg-white',
-  Meal: 'border-[#2CB716] text-[#2CB716] bg-white',
-  Social: 'border-[#FFB900] text-[#FFB900] bg-white',
-  Sponsor: 'border-[#7579E1] text-[#7579E1] bg-white',
+  General: 'border-[#2CB716] text-[#2CB716] bg-white',
+  Meal: 'border-[#9370DB] text-[#9370DB] bg-white',
+  Activities: 'border-[#FFB900] text-[#FFB900] bg-white',
+  Challenges: 'border-[#EF6C8B] text-[#EF6C8B] bg-white',
   Workshop: 'border-[#22B9C5] text-[#22B9C5] bg-white',
   'All-Filter': 'border-gray-500 bg-gray-500 text-white',
-  'Required-Filter': 'border-[#EF6C8B] bg-[#EF6C8B] text-white',
-  'Meal-Filter': 'border-[#2CB716] bg-[#2CB716] text-white',
-  'Social-Filter': 'border-[#FFB900] bg-[#FFB900] text-white',
-  'Sponsor-Filter': 'border-[#7579E1] bg-[#7579E1] text-white',
+  'General-Filter': 'border-[#2CB716] bg-[#2CB716] text-white',
+  'Meal-Filter': 'border-[#9370DB] bg-[#9370DB] text-white',
+  'Activities-Filter': 'border-[#FFB900] bg-[#FFB900] text-white',
+  'Challenges-Filter': 'border-[#EF6C8B] bg-[#EF6C8B] text-white',
   'Workshop-Filter': 'border-[#22B9C5] bg-[#22B9C5] text-white',
 };
 
@@ -56,8 +53,8 @@ const Event = ({ data, index, arrayLength, isLastElement, filter }) => {
           className={`${!isLastElement ? 'border-b border-[#4D8889]' : ''} p-2`}
         >
           <div className="flex justify-between">
-            <div className="text-md font-bold font-dmSans">{formattedTime}</div>
-            <div className="flex text-right pl-4 text-md font-bold font-dmSans">
+            <div className="text-md font-bold font-roboto">{formattedTime}</div>
+            <div className="flex text-right pl-4 text-md font-bold font-roboto">
               {data.title}
               <p>
                 {!showDescription ? (
@@ -70,20 +67,20 @@ const Event = ({ data, index, arrayLength, isLastElement, filter }) => {
           </div>
           <div className="flex justify-between">
             <div
-              className={`font-bold font-poppins bg-white text-xs rounded-xl py-1 px-2 border-2 ${
+              className={`font-bold font-roboto bg-white text-xs rounded-xl py-1 px-2 border-2 ${
                 eventColors[data.type]
               }`}
             >
               {data.type}
             </div>
-            <div className="text-gray-600 flex items-center font-dmSans mr-7">
+            <div className="text-gray-600 flex items-center font-roboto mr-7">
               <LocationOnIcon style={{ fontSize: 'large', marginRight: '2px' }} />
               {data.location}
             </div>
           </div>
           <div className="max-w-full">
             {showDescription && (
-              <div className="break-words whitespace-normal overflow-y-auto overflow-hidden text-gray-500 font-dmSans text-sm mt-2">
+              <div className="break-words whitespace-normal overflow-y-auto overflow-hidden text-gray-500 font-roboto text-sm mt-2">
                 {data.description}
               </div>
             )}
@@ -209,13 +206,15 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
           id="schedule-section"
           ref={scheduleRef}
           style={{ textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
-          className="text-center text-2xl font-bold text-white p-2 font-montserrat uppercase relative"
+          className="text-center text-2xl font-bold text-white p-2 font-roboto uppercase relative"
         >
           Schedule
         </div>
         <div
           style={{ textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
+
           className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-300 to-red-200 p-2 font-fredoka uppercase relative"
+
         >
           What can you expect?
         </div>
@@ -227,31 +226,35 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
           >
             <div
               onClick={() => changeFilter('All')}
-              className={`text-center my-2 md:my-0 text-sm font-bold font-poppins cursor-pointer px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
+              className={`text-center my-2 md:my-0 text-sm font-bold font-roboto cursor-pointer px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
               ${filter === 'All' ? eventColors['All-Filter'] : eventColors['All']}`}
             >
               All
             </div>
 
             <div
-              onClick={() => changeFilter('Required')}
-              className={`text-center my-2 md:my-0 text-sm font-bold font-poppins cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
-              ${filter === 'Required' ? eventColors['Required-Filter'] : eventColors['Required']}`}
+              onClick={() => changeFilter('General')}
+              className={`text-center my-2 md:my-0 text-sm font-bold font-roboto cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
+              ${filter === 'General' ? eventColors['General-Filter'] : eventColors['General']}`}
             >
-              Required
+              General
             </div>
 
             <div
-              onClick={() => changeFilter('Sponsor')}
-              className={`text-center my-2 md:my-0 text-sm font-bold font-poppins cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
-              ${filter === 'Sponsor' ? eventColors['Sponsor-Filter'] : eventColors['Sponsor']}`}
+              onClick={() => changeFilter('Challenges')}
+              className={`text-center my-2 md:my-0 text-sm font-bold font-roboto cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
+              ${
+                filter === 'Challenges'
+                  ? eventColors['Challenges-Filter']
+                  : eventColors['Challenges']
+              }`}
             >
-              Sponsor
+              Challenge Opens and Closes
             </div>
 
             <div
               onClick={() => changeFilter('Meal')}
-              className={`text-center my-2 md:my-0 text-sm font-bold font-poppins cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
+              className={`text-center my-2 md:my-0 text-sm font-bold font-roboto cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
               ${filter === 'Meal' ? eventColors['Meal-Filter'] : eventColors['Meal']}`}
             >
               Meal
@@ -259,18 +262,22 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
 
             <div
               onClick={() => changeFilter('Workshop')}
-              className={`text-center my-2 md:my-0 text-sm font-bold font-poppins cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
+              className={`text-center my-2 md:my-0 text-sm font-bold font-roboto cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
               ${filter === 'Workshop' ? eventColors['Workshop-Filter'] : eventColors['Workshop']}`}
             >
-              Workshop
+              Workshop/Panels
             </div>
 
             <div
-              onClick={() => changeFilter('Social')}
-              className={`text-center my-2 md:my-0 text-sm font-bold font-poppins cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
-              ${filter === 'Social' ? eventColors['Social-Filter'] : eventColors['Social']}`}
+              onClick={() => changeFilter('Activities')}
+              className={`text-center my-2 md:my-0 text-sm font-bold font-roboto cursor-pointer mx-1 px-2 md:h-8 md:py-1 h-10 py-2 border-2 rounded-xl 
+              ${
+                filter === 'Activities'
+                  ? eventColors['Activities-Filter']
+                  : eventColors['Activities']
+              }`}
             >
-              Social
+              Activities
             </div>
           </div>
         </div>
