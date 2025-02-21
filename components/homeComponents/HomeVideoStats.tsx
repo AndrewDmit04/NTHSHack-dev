@@ -20,6 +20,21 @@ export default function HomeVideoStats() {
                 transform: translateY(0);
               }
             }
+            @keyframes floatDiagonal {
+              0% {
+                transform: translate(0, 0);
+              }
+              50% {
+                transform: translate(15px, -15px);
+              }
+              100% {
+                transform: translate(0, 0);
+              }
+            }
+
+            .animate-float-diagonal {
+              animation: floatDiagonal 4s ease-in-out infinite;
+            }
 
             .animate-float {
               animation: float 3s ease-in-out infinite;
@@ -33,7 +48,7 @@ export default function HomeVideoStats() {
         />
         <img
           src="/assets/spaceStation.png"
-          className="absolute bottom-10 left-40 w-50 h-50 animate-float"
+          className="absolute bottom-10 left-40 w-50 h-50 animate-float-diagonal"
         />
 
         <iframe
