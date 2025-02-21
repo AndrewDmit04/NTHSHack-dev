@@ -474,7 +474,7 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                   await router.push('/');
                 }}
               >
-                <div className="mt-2 cursor-pointer items-center inline-flex text-white font-bold bg-[#40B7BA] rounded-[30px] pr-4 pl-1 py-2 border-2 border-white">
+                <div className="mt-2 cursor-pointer items-center inline-flex text-white font-bold bg-gradient-to-r from-blue-500 to-purple-500 rounded-[30px] pr-4 pl-1 py-2 border-2 border-white">
                   <ChevronLeftIcon className="text-white" fontSize={'large'} />
                   Home
                 </div>
@@ -491,7 +491,7 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                 {registrationSection == 0 && (
                   <section className="bg-white lg:w-3/5 md:w-3/4 w-full min-h-[35rem] mx-auto rounded-2xl md:py-4 py-10 px-8 mb-8 text-[#4C4950]">
                     <header>
-                      <h1 className="text-[#40B7BA] lg:text-4xl sm:text-3xl text-2xl font-bold text-center mt-2 md:mt-8 mb-4 poppins-bold">
+                      <h1 className="text-purple-500 lg:text-4xl sm:text-3xl text-2xl font-bold text-center mt-2 md:mt-8 mb-4 poppins-bold">
                         Hacker Application
                       </h1>
                       <div
@@ -516,7 +516,7 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                           e.preventDefault();
                           await handleSaveProfile(values, registrationSection, resetForm);
                         }}
-                        className="bg-[#40B7BA] rounded-lg p-3 text-white font-bold"
+                        className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg p-3 text-white font-bold mt-5"
                       >
                         Save Profile
                       </button>
@@ -570,11 +570,11 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                     <div className="flex justify-end my-4">
                       <button
                         disabled={!dirty}
-                        onClick={(e) => {
+                        onClick={async (e) => {
                           e.preventDefault();
-                          handleSaveProfile(values, registrationSection, resetForm);
+                          await handleSaveProfile(values, registrationSection, resetForm);
                         }}
-                        className="bg-[#40B7BA] rounded-lg p-3 text-white font-bold"
+                        className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg p-3 text-white font-bold mt-5"
                       >
                         Save Profile
                       </button>
@@ -612,11 +612,11 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                     <div className="flex justify-end my-4">
                       <button
                         disabled={!dirty}
-                        onClick={(e) => {
+                        onClick={async (e) => {
                           e.preventDefault();
-                          handleSaveProfile(values, registrationSection, resetForm);
+                          await handleSaveProfile(values, registrationSection, resetForm);
                         }}
-                        className="bg-[#40B7BA] rounded-lg p-3 text-white font-bold"
+                        className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg p-3 text-white font-bold mt-5"
                       >
                         Save Profile
                       </button>
@@ -641,11 +641,11 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                     <div className="flex justify-end my-4">
                       <button
                         disabled={!dirty}
-                        onClick={(e) => {
+                        onClick={async (e) => {
                           e.preventDefault();
-                          handleSaveProfile(values, registrationSection, resetForm);
+                          await handleSaveProfile(values, registrationSection, resetForm);
                         }}
-                        className="bg-[#40B7BA] rounded-lg p-3 text-white font-bold"
+                        className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg p-3 text-white font-bold mt-5"
                       >
                         Save Profile
                       </button>
@@ -666,14 +666,12 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                     </div>
                     <div className="flex justify-end my-4">
                       <button
-                        disabled={(!dirty && !resumeFileUpdated) || isSavingApplication}
+                        disabled={!dirty}
                         onClick={async (e) => {
                           e.preventDefault();
-                          setIsSavingApplication(true);
                           await handleSaveProfile(values, registrationSection, resetForm);
-                          setIsSavingApplication(false);
                         }}
-                        className="bg-[#40B7BA] rounded-lg p-3 text-white font-bold"
+                        className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg p-3 text-white font-bold mt-5"
                       >
                         Save Profile
                       </button>
@@ -700,7 +698,7 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                       <button
                         disabled={isSubmitting}
                         type="submit"
-                        className="mr-auto cursor-pointer px-4 py-2 rounded-lg bg-[#40B7BA] hover:brightness-90"
+                        className="mr-auto cursor-pointer px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500  hover:brightness-90"
                       >
                         Submit
                       </button>
@@ -710,18 +708,6 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                           make sure that every required fields are filled out.
                         </div>
                       )}
-                    </div>
-                    <div className="flex justify-end my-4">
-                      <button
-                        disabled={!dirty}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleSaveProfile(values, registrationSection, resetForm);
-                        }}
-                        className="bg-[#40B7BA] rounded-lg p-3 text-white font-bold"
-                      >
-                        Save Profile
-                      </button>
                     </div>
                   </section>
                 )}
@@ -751,16 +737,16 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                   >
                     <div
                       style={{ width: 'fit-content' }}
-                      className="hidden md:inline-flex cursor-pointer select-none bg-white text-[#40B7BA] rounded-[30px] py-3 pl-2 pr-4 text-xs md:text-lg border-2 border-[#40B7BA]"
+                      className="hidden md:inline-flex cursor-pointer select-none bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-[30px] py-3 pl-2 pr-4 text-xs md:text-lg border-2 border-white"
                     >
-                      <ChevronLeftIcon className="text-[#40B7BA]" />
+                      <ChevronLeftIcon className="text-white" />
                       prev page
                     </div>
                     <div
                       style={{ width: 'fit-content' }}
-                      className="md:hidden cursor-pointer select-none bg-white text-[#40B7BA] rounded-[30px] py-3 pl-2 pr-4 text-xs md:text-lg border-2 border-[#40B7BA]"
+                      className="md:hidden cursor-pointer select-none bg-gradient-to-r from-purple-500 to-blue-500 rounded-[30px] py-3 pl-2 pr-4 text-xs md:text-lg border-2 border-white"
                     >
-                      <ChevronLeftIcon className="text-[#40B7BA]" />
+                      <ChevronLeftIcon className="text-white" />
                       prev
                     </div>
                   </div>
@@ -808,7 +794,7 @@ export default function Register({ allowedRegistrations }: RegisterPageProps) {
                   >
                     <div
                       style={{ width: 'fit-content' }}
-                      className="hidden md:inline-flex cursor-pointer select-none bg-white text-[#40B7BA] text-xs md:text-lg rounded-[30px] py-3 pr-2 pl-4 border-2 border-[#40B7BA]"
+                      className="hidden md:inline-flex cursor-pointer select-none bg-gradient-to-r text-white from-purple-500 to-blue-500 text-xs md:text-lg rounded-[30px] py-3 pr-2 pl-4 border-2 border-white"
                     >
                       next page
                       <ChevronRightIcon />

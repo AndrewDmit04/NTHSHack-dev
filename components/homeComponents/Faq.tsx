@@ -61,32 +61,11 @@ export default function FaqPage({ fetchedFaqs }: { fetchedFaqs: AnsweredQuestion
 
   return (
     <div ref={faqRef} id="faq-section" className="flex flex-col flex-grow relative">
-      <style>
-        {`
-          @keyframes moveUpDown {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-8px); }
-          }
-
-          @keyframes moveUpDownLeftRight {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(4px, -4px); }
-            50% { transform: translate(8px, 0); }
-            75% { transform: translate(4px, 4px); }
-            100% { transform: translate(0, 0); }
-          }
-
-          @keyframes moveLeftRight {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(8px); }
-          }
-        `}
-      </style>
       <Head>
         <title>NTHSHack 2025</title>
         <meta name="description" content="HackPortal's Frequently Asked Questions" />
       </Head>
-      <div className="top-6">
+      <div className="top-6 bg-gradient-to-b from-[#B0D6F5] to-[#09B1EC] pb-[800px]">
         {/* <div className="flex flex-row justify-between items-center py-1"> */}
         {/*   <div> */}
         {/*     <Image */}

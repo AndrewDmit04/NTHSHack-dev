@@ -14,6 +14,7 @@ import HomeSpeakers from './HomeSpeakers2';
 
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { ChevronUpIcon } from '@heroicons/react/solid';
+import StarField from './StarField';
 
 const eventColors = {
   All: 'border-gray-500 text-gray-500 bg-white',
@@ -190,18 +191,19 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
   );
 
   return (
-    <div className={`${styles.container} pt-[8rem] relative`}>
-      <Image
+    <div className={` pt-[8rem] relative bg-gradient-to-b from-[#000F27] to-[#063074]`}>
+      <StarField count={100} />
+      {/* <Image
         src={middleWave.src}
         height={middleWave.height}
         width={middleWave.width}
         alt="middle_wave.png"
         className="absolute top-0 left-0 w-full h-full z-0"
-      />
+      /> */}
 
-      <BackgroundAssets />
+      {/* <BackgroundAssets /> */}
 
-      <div className={styles.content}>
+      <div className={`${styles.content} `}>
         {/* <HomeSpeakers />  speaker deleted*/}
         <div
           id="schedule-section"
@@ -300,12 +302,12 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
             </div>
           </div>
         </div>
-        <div className="flex justify-center px-[2rem]">
-          {/* Ducks moving left to right */}
-          <div className={styles.duckAnimation}>
-            <Image width={600} height={300} src={ducks.src} alt="ducks.png" />
-          </div>
-        </div>
+        {/* <div className="flex justify-center px-[2rem]"> */}
+        {/* Ducks moving left to right */}
+        {/* <div className={styles.duckAnimation}> */}
+        {/* <Image width={600} height={300} src={ducks.src} alt="ducks.png" /> */}
+        {/* </div> */}
+        {/* </div> */}
       </div>
     </div>
   );
