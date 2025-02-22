@@ -5,18 +5,100 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 import Preloader from './Preloader';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import StarField from './StarField';
 
 export default function SpaceThemedHero() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const words = 'HTHS Hack Blast Off'.split(' ');
+  const words = 'NTHS Hack Blast Off'.split(' ');
+
+  const controls = useAnimation();
+  const controls1 = useAnimation();
+  const isMountedRef = useRef(false);
+
+  useEffect(() => {
+    isMountedRef.current = true; // Mark as mounted
+    const radius = 350;
+    const duration = 10;
+    let angle = 0;
+    const angleOffset = Math.PI;
+    let animationFrameId;
+
+    const animate = async () => {
+      if (!isMountedRef.current) return;
+
+      try {
+        // Using Promise.all to handle both animations concurrently
+        await Promise.all([
+          controls.start({
+            opacity: 1,
+            x: radius * Math.cos(angle),
+            y: radius * Math.sin(angle),
+            transition: { duration: 0.01, ease: 'linear' },
+          }),
+          controls1.start({
+            opacity: 1,
+            x: radius * Math.cos(angle + angleOffset),
+            y: radius * Math.sin(angle + angleOffset),
+            transition: { duration: 0.01, ease: 'linear' },
+          }),
+        ]);
+
+        angle += (2 * Math.PI) / (duration * 100);
+        animationFrameId = requestAnimationFrame(animate);
+      } catch (error) {
+        // Handle any animation errors
+        console.error('Animation error:', error);
+      }
+    };
+
+    // Small delay to ensure component is mounted
+    const timeoutId = setTimeout(() => {
+      if (isMountedRef.current) {
+        animate();
+      }
+    }, 0);
+
+    return () => {
+      isMountedRef.current = false;
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(timeoutId);
+    };
+  }, [controls, controls1]);
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
       {!isLoaded && <Preloader setIsLoaded={setIsLoaded} />}
 
       <StarField count={200} />
+
+      <motion.div
+        initial={{ opacity: 0, rotate: 0, translateY: '-50%', translateX: '-50%' }}
+        animate={{ opacity: 1, rotate: 360 }}
+        transition={{
+          opacity: { delay: 2, duration: 2, ease: 'easeInOut' }, // Fade in over 2 seconds
+          rotate: { delay: 2, duration: 70, ease: 'linear', repeat: Infinity, repeatType: 'loop' }, // Slow spin after fade-in
+        }}
+        className="max-w-4xl mx-auto absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2"
+      >
+        <img src="/assets/moonLanding.png" alt="moon" className="" />
+      </motion.div>
+
+      <motion.div
+        animate={controls}
+        initial={{ opacity: 0 }}
+        className="max-w-4xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-0 "
+      >
+        <img src="/assets/astroid.png" alt="astroid" className="w-20 h-20" />
+      </motion.div>
+
+      <motion.div
+        animate={controls1}
+        initial={{ opacity: 0 }}
+        className="max-w-4xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-0"
+      >
+        <img src="/assets/astroid.png" alt="astroid" className="w-20 h-20" />
+      </motion.div>
 
       <AnimatePresence>
         {isLoaded && (
@@ -42,8 +124,11 @@ export default function SpaceThemedHero() {
                           damping: 25,
                         }}
                         className="inline-block text-transparent bg-clip-text 
-                                  bg-gradient-to-r from-blue-500 to-purple-500"
+                                  bg-gradient-to-r from-blue-500 via-sky-300 to-red-200"
                       >
+                        {/* from-blue-500 via-sky-300 to-red-200 */}
+                        {/* from-blue-500 to-purple-400 */}
+                        {/* from-cyan-500 to-rose-200 */}
                         {letter}
                       </motion.span>
                     ))}
