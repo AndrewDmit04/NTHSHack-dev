@@ -73,7 +73,7 @@ export default function Preloader({ setIsLoaded }: { setIsLoaded: (loaded: boole
       className="fixed inset-0 z-50 flex items-center justify-center bg-black overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: [0, 1, 1, 0] }}
-      transition={{ duration: 5, times: [0, 0.3, 0.95, 1] }}
+      transition={{ duration: 3, times: [0, 0.3, 0.95, 1] }}
       onAnimationComplete={() => setIsLoaded(true)}
     >
       <StarField count={20} />
