@@ -212,9 +212,7 @@ export default function HomeSchedule(props: { scheduleCard: ScheduleEvent[]; dat
         </div>
         <div
           style={{ textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)' }}
-
           className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-sky-300 to-red-200 p-2 font-fredoka uppercase relative"
-
         >
           What can you expect?
         </div>
