@@ -25,9 +25,8 @@ export default function HomeFooter() {
   };
 
   return (
-
     <section className="relative md:text-base text-xs bg-[#6d3e1c] text-white">
-      <div className="bg-[#09B1EC] h-[800px] relative">
+      <div className="bg-[#09B1EC] h-[1000px] relative">
         {/* First Cloud */}
         <motion.img
           src="/assets/cloud.png"
@@ -88,14 +87,18 @@ export default function HomeFooter() {
           }}
         />
 
-        <img src="/assets/tree.webp" className="bottom-0 right-12 absolute w-72"></img>
-        <img src="/assets/tree.webp" className="bottom-0 left-12 absolute w-72"></img>
+        <motion.img
+          src="/assets/shuttle.png"
+          alt="shuttle"
+          className="absolute left-1/2 -translate-x-1/2 bottom-0" // Fixed typo
+        />
+
         <img
-          src="/assets/tree.webp"
-          className="bottom-0 left-1/2 -translate-x-1/2 absolute w-72"
-        ></img>
+          src="/assets/grass1.png"
+          alt="grass"
+          className="w-full z-0 absolute left-0 bottom-0 h-96 "
+        />
       </div>
-      <div className="w-full h-20 bg-green-500"></div>
 
       <div className="container mx-auto flex flex-wrap justify-between items-start">
         {/* HackUTD Section */}
@@ -107,7 +110,7 @@ export default function HomeFooter() {
           {/* Social Media Links */}
           <div className="flex space-x-4 mt-4">
             <a
-              href="https://www.instagram.com/acmutd_outreach/"
+              href="https://www.instam.com/acmutd_outreach/"
               target="_blank"
               rel="noopener noreferrer"
             >

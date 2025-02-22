@@ -128,7 +128,7 @@ export default function Home(props: {
           /> */}
 
           <HomeSchedule scheduleCard={props.scheduleCard} dateCard={props.dateCard} />
-          <HomeChallengesComponent />
+          <HomeChallengesComponent challenges={props.challenges} />
           {/* include HomePrizes in HomeChallenges */}
           {/* <HomePrizes prizes={props.prizeData} /> */}
           <HomeFaq answeredQuestion={props.answeredQuestion} />
