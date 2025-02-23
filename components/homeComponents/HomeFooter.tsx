@@ -110,7 +110,7 @@ export default function HomeFooter() {
           {/* Social Media Links */}
           <div className="flex space-x-4 mt-4">
             <a
-              href="https://www.instam.com/acmutd_outreach/"
+              href="https://www.instagram.com/acmutd_outreach/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -277,7 +277,7 @@ export default function HomeFooter() {
         </div>
       </div>
       {/* Copyright Notice */}
-      <div className="absolute bottom-0 w-full text-center py-2">
+      <div className="relative bottom-0 w-full text-center py-2">
         <p>All Copyrights are reserved by HackUTD &lt;3</p>
       </div>
     </section>

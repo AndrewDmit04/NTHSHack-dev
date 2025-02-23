@@ -34,7 +34,7 @@ export default function HomeVideoStats() {
 
       {/* Astronaut */}
       <motion.div
-        className="absolute top-2 right-20"
+        className="absolute bottom-2 right-20"
         animate={{ y: [-20, 20, -20] }}
         transition={{
           duration: 6,
@@ -57,7 +57,7 @@ export default function HomeVideoStats() {
 
       {/* Space Station */}
       <motion.div
-        className="absolute bottom-10 left-40"
+        className="absolute bottom-40 left-45"
         animate={{
           x: [0, 20, 0],
           y: [0, -20, 0],
