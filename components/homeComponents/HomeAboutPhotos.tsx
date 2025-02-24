@@ -26,11 +26,13 @@ const HomeAboutPhotos = () => {
   };
 
   const cloudLeftScroll = {
-    transform: `translateX(${windowScroll * (window.innerWidth <= 660 ? 0.2 : 0.42)}px)`,
+    transform: `translateX(${windowScroll * (window.innerWidth <= 660 ? 0.2 : 0.92)}px) rotate(${
+      windowScroll / 30
+    }deg) translateY(40%)`,
   };
 
   const cloudRightScroll = {
-    transform: `translateX(${-1 * windowScroll * (window.innerWidth <= 660 ? 0.2 : 0.42)}px)`,
+    transform: `translateX(${-1 * windowScroll * (window.innerWidth <= 660 ? 0.3 : 0.62)}px)`,
   };
 
   const balloonHoverStyle = {
@@ -38,33 +40,33 @@ const HomeAboutPhotos = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center font-jua bg-black ">
+    <div className="relative flex flex-col items-center justify-center font-jua bg-black pt-72   ">
       <StarField count={200} />
 
       {/* Right Cloud */}
       <div
-        className="absolute top-[40%] lg:top-[5%] left-[5%] lg:left-[30%] transform -translate-x-[30%] z-50"
+        className="absolute top-[60%] lg:top-[5%] left-[5%] lg:left-[0%] transform z-0"
         style={{ ...cloudStyle, ...cloudLeftScroll }}
       >
         <img
-          src="/assets/astronautPlanet.png"
+          src="/assets/iss.png"
           alt="Astronaut"
-          className="w-[30rem] md:w-[35rem] lg:w-[40rem] cloud-hover"
+          className="w-[15rem] md:w-[20rem] lg:w-[25rem] cloud-hover"
         />
       </div>
 
-      {/* Left Cloud */}
+      {/* Left Cloud
       <div
         className="absolute top-[40%] lg:top-[5%] right-[5%] lg:right-[30%] transform translate-x-[30%] z-50"
         style={{ ...cloudStyle, ...cloudRightScroll }}
       >
         <img
-          src="/assets/astronautPlanet.png"
+          src="/assets/iss.png"
           alt="Astronaut"
-          className="w-[30rem] md:w-[35rem] lg:w-[40rem] cloud-hover"
+          className="w-[20rem] md:w-[25rem] lg:w-[30rem] cloud-hover"
           style={{ transform: 'scaleX(-1)' }} // flipping the image horizontally
         />
-      </div>
+      </div> */}
 
       {/* About Section */}
       <div className="relative flex flex-col-reverse lg:flex-row items-center mb-5 font-fredoka z-10 space-y-8 lg:space-y-0 lg:space-x-15 mt-44 ">
