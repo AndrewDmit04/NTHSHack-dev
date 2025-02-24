@@ -161,7 +161,7 @@ export default function SpaceThemedHero() {
         className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
         initial={{ y: '100%' }}
         animate={{ y: '-100vh' }}
-        transition={{ delay: 4, duration: 4, ease: 'easeInOut' }}
+        transition={{ delay: 1.2, duration: 4, ease: 'easeInOut' }}
       >
         <Image src="/assets/rocket.webp" alt="Rocket" width={50} height={100} className="" />
       </motion.div>
