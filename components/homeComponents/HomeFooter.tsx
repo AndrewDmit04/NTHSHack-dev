@@ -110,7 +110,7 @@ export default function HomeFooter() {
           {/* Social Media Links */}
           <div className="flex space-x-4 mt-4">
             <a
-              href="https://www.instam.com/acmutd_outreach/"
+              href="https://www.instagram.com/acmutd_outreach/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -198,7 +198,8 @@ export default function HomeFooter() {
 
         {/* Learn More Section */}
         <div className="flex-1 p-4">
-          <h1 className="font-semibold text-xl mb-3">Learn more</h1>
+          <h1 className="font-semibold text-xl">Developed with HackPortal</h1>
+          <h1 className="font-semibold text-xl mb-3"> Learn more</h1>
           <div className="font-light">
             <p
               className="mb-2"
@@ -210,19 +211,11 @@ export default function HomeFooter() {
                 style={{ textUnderlineOffset: '2px' }}
               >
                 <Link href="https://hackutd.co/" target="_blank">
-                  organizer website
+                  website
                 </Link>
               </span>
             </p>
-            <p className="mb-2">
-              Designed by{' '}
-              <span
-                className="font-semibold"
-                style={{ whiteSpace: 'nowrap', wordBreak: 'keep-all', textUnderlineOffset: '2px' }}
-              >
-                HackUTD
-              </span>
-            </p>
+
             <p className="mb-2">
               HackPortal developed with {'<3'}{' '}
               <span
@@ -252,7 +245,7 @@ export default function HomeFooter() {
 
         {/* Newsletter Section */}
         <div className="flex-1 p-4 max-w-sm">
-          <h1 className="font-semibold text-xl mb-3">Follow our Newsletter</h1>
+          <h1 className="font-semibold text-xl mb-3">Follow HackPortal Newsletter</h1>
           {/* Wrap input and button in a container */}
           <div className="flex flex-col gap-4">
             <input
@@ -277,7 +270,7 @@ export default function HomeFooter() {
         </div>
       </div>
       {/* Copyright Notice */}
-      <div className="absolute bottom-0 w-full text-center py-2">
+      <div className="relative bottom-0 w-full text-center py-2">
         <p>All Copyrights are reserved by HackUTD &lt;3</p>
       </div>
     </section>

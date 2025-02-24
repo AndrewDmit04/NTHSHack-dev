@@ -179,7 +179,7 @@ const Countdown = () => {
             style={{
               width: '200px',
               height: '200px',
-              bottom: '100%',
+              bottom: '90%',
               right: '75%',
               transform: 'translateX(-50%)',
             }}
@@ -188,7 +188,7 @@ const Countdown = () => {
           <div className="absolute flex flex-col items-center justify-center w-full h-full p-4 text-center">
             <h1
               ref={countdownTitleRef}
-              className="text-6xl md:text-6xl sm:text-md xs:text-small font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-400 countdown-title"
+              className="text-6xl md:text-6xl sm:text-md xs:text-small font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-400 countdown-title"
               style={{ opacity: isDesktopView ? 0 : 1 }}
             >
               COUNTDOWN
