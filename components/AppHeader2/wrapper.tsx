@@ -123,7 +123,7 @@ export default function AppHeader2_Wrapper() {
       </header>
 
       {/* Sign out button for mobile */}
-      <button
+      {/* <button
         className={clsx(
           'w-[112px]',
           `md:hidden fixed z-[1000] ${location.pathname === '/' ? 'left-[1rem]' : 'right-[1rem]'}`,
@@ -138,7 +138,7 @@ export default function AppHeader2_Wrapper() {
         }}
       >
         {user ? 'Sign Out' : 'Sign In'}
-      </button>
+      </button> */}
     </React.Fragment>
   );
 }

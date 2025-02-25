@@ -151,21 +151,21 @@ export default function AppNavbarBottom(props: Props) {
     // itemIdx++;
 
     // AdminIcon
-    items.push(
-      <button
-        id={itemIdRoot + itemIdx}
-        className={clsx('p-1.5 hover:bg-[rgb(39,39,42)] rounded-full')}
-        onClick={async () => {
-          if (Object.hasOwn(callbackRegistry, router.pathname)) {
-            await callbackRegistry[router.pathname]();
-          }
-          await router.push(hasProfile ? '/profile' : '/auth');
-        }}
-      >
-        <AdminIcon />
-      </button>,
-    );
-    itemIdx++;
+    // items.push(
+    //   <button
+    //     id={itemIdRoot + itemIdx}
+    //     className={clsx('p-1.5 hover:bg-[rgb(39,39,42)] rounded-full')}
+    //     onClick={async () => {
+    //       if (Object.hasOwn(callbackRegistry, router.pathname)) {
+    //         await callbackRegistry[router.pathname]();
+    //       }
+    //       await router.push(hasProfile ? '/profile' : '/auth');
+    //     }}
+    //   >
+    //     <AdminIcon />
+    //   </button>,
+    // );
+    // itemIdx++;
 
     // Scanner Icon
     {

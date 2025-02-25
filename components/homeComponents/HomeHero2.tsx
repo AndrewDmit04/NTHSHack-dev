@@ -10,7 +10,7 @@ import StarField from './StarField';
 
 export default function SpaceThemedHero() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const words = 'NTHS Hack Blast Off'.split(' ');
+  const words = 'NTHS Hack: Space to Create!'.split(' ');
 
   const controls = useAnimation();
   const controls1 = useAnimation();

@@ -237,7 +237,7 @@ export default function AppHeader2_Core(props: Props) {
         className="relative font-dmSans border-[3px] border-[rgba(30,30,30,0.60)] rounded-xl p-1 bg-slate-500 opacity-90 text-white cursor-pointer flex-wrap"
       >
         {/* Sign out button */}
-        <button
+        {/* <button
           className={clsx(
             'w-[102px]',
             'top-1/2 -translate-y-1/2',
@@ -257,7 +257,7 @@ export default function AppHeader2_Core(props: Props) {
           }}
         >
           {user ? 'Sign Out' : 'Sign In'}
-        </button>
+        </button> */}
 
         <FloatingDockWrapper
           classes={{
