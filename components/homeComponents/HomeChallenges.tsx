@@ -32,6 +32,11 @@ const PRIZES = [
     description: 'Doordash Gift Card - $50',
     imgSrc: '/assets/doordash.png',
   },
+  {
+    title: 'Design Track',
+    description: 'Amazon Gift Card - $50',
+    imgSrc: '/assets/amazon.png',
+  },
 ];
 
 export default function HomeChallengesComponent() {
@@ -53,14 +58,18 @@ export default function HomeChallengesComponent() {
           {' '}
           {/* Adjusted gap-x for horizontal spacing */}
           {PRIZES.map((prize, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow-md w-96 mx-auto">
+            <div
+              key={index}
+              className={`bg-white p-4 rounded-lg shadow-md w-96 mx-auto text-center 
+              ${index === 6 ? 'lg:col-span-3 flex flex-col items-center' : ''}`}
+            >
               <img
                 src={prize.imgSrc}
                 alt={prize.title}
-                className="mx-auto w-36 h-36 object-contain" // Set uniform width and height
+                className="mx-auto w-36 h-36 object-contain"
               />
-              <h3 className="font-bold text-center">{prize.title}</h3>
-              <p className="text-center">{prize.description}</p>
+              <h3 className="font-bold">{prize.title}</h3>
+              <p>{prize.description}</p>
             </div>
           ))}
         </div>
